@@ -1,0 +1,15 @@
+---
+# tasks file for minetest
+
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- apt_repository:
+    repo: ppa:minetestdevs/stable
+
+- name: Install minetest
+  apt:
+    name: "minetest={{ minetest_version }}"
+    state: present

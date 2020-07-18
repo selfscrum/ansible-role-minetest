@@ -20,6 +20,8 @@ Role Variables
 |-----------------------|--------------------------------------------------------------------------------------------------------------|-------------------------------------------|
 | `minetest_version`     | The version of the Minetest server to download and install                                                      | `5.3*`                                     |
 
+http://wiki.minetest.net/
+
 Dependencies
 ------------
 

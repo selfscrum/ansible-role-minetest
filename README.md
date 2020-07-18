@@ -19,8 +19,12 @@ Role Variables
 | Variable              | Description                                                                                                  | Example                                   |
 |-----------------------|--------------------------------------------------------------------------------------------------------------|-------------------------------------------|
 | `minetest_version`     | The version of the Minetest server to download and install                                                      | `5.3*`                                     |
-
-http://wiki.minetest.net/
+| `server_name`     | The public name of the Minetest server                                                      | `Minetest server`                                     |
+| `server_description`     | The public description of the Minetest server                                                      | `Welcome to my Minetest Server`                                     |
+| `bind_address`     | The ip address to bind to                                                      | `0.0.0.0`                                     |
+| `bind_port`     | The server port on which Minetest will be exposed                                                      | `30000`                                     |
+| `admin_username`     | The username of the user that will be named admin when joining                                                      | empty                                     |
+| `extra_configuration`     | Any other minetest configuration in format `key=value` (one per line), see https://wiki.minetest.net/Minetest.conf                                                       | empty                                     |
 
 Dependencies
 ------------
@@ -36,7 +40,7 @@ Sample playbook:
     - name: Install Minetest
       hosts: all
       roles:
-        - nautik1.teeworlds
+        - nautik1.minetest
 ```
 
 Sample inventory:

@@ -20,14 +20,6 @@
 - name: Add user "minetest"
   user: name=minetest group=minetest
 
-- name: Create the data directory
-  file:
-    path: "{{ data_directory }}"
-    owner: root
-    group: root
-    state: directory
-    mode: '0755'
-
 - name: Create the configuration directory
   file:
     path: /etc/minetest

@@ -1,0 +1,20 @@
+{
+    "github_user" : "selfscrum",
+    "github_repo" : "minetest_server",
+    "tfc_organization" :"selfscrum",
+    "workspace" : "minetest_edu_server",
+    "env_name" : "rfnl_minetest", 
+    "env_stage" : "dev",
+    "location" : "nbg1",
+    "system_function" : "APPLICATION",
+    "server_image" :"ubuntu-20.04",
+    "server_type" :"cx41",
+    "keyname" :"tfh_key",
+    "network_zone" :"eu-central",
+    "mt_version": "5.3*",
+    "mt_server_name": "RFNL Minetest Server",
+    "mt_server_description": "Willkommen bei Minetest",
+    "mt_bind_address": "0.0.0.0",
+    "mt_bind_port": "30000",
+    "mt_admin_name" : "mt_admin"
+}

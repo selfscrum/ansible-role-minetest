@@ -1,9 +1,0 @@
----
-# defaults file for minetest
-minetest_version: 5.3*
-server_name: Minetest server
-server_description: Welcome to my Minetest Server
-bind_address: 0.0.0.0
-bind_port: 30000
-admin_username:
-extra_configuration:

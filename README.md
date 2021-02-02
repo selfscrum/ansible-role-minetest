@@ -1,59 +1,16 @@
-Ansible-role-minetest
-=====================
+# ansible-role-minetest
 
-This role helps installing a Minetest server.
+Provide a stable one-shop-stop routine to install a Hetzner cloud machine with an immutable minetest base installation and merge optional mod projects.
 
-Requirements
-------------
+## Install in Terraform Cloud
 
-Any debian-based linux should work, preferably Ubuntu 20.04.
+Prerequisite: you need 
+* a Terraform Cloud account
+* a git account that you can connect with Terraform Cloud
+* a local terraform binary of at least 0.13.x.
+* a local ~/.terraformrc file with an API Token set up to connect to Terraform Cloud.
 
-Tested with:
-- Minetest 5.3.0
-- Ansible 2.9.10
-- Ubuntu 20.04 on [Gandi Cloud](https://www.gandi.net/fr/cloud)
+* Checkout this project then go to `modules/workspace`.
+* Run `terraform init`
+* Run `terraform apply`. The future provisioning workspace will now be created in Terraform Cloud.
 
-Role Variables
---------------
-
-| Variable              | Description                                                                                                  | Example                                   |
-|-----------------------|--------------------------------------------------------------------------------------------------------------|-------------------------------------------|
-| `minetest_version`     | The version of the Minetest server to download and install                                                      | `5.3*`                                     |
-| `server_name`     | The public name of the Minetest server                                                      | `Minetest server`                                     |
-| `server_description`     | The public description of the Minetest server                                                      | `Welcome to my Minetest Server`                                     |
-| `bind_address`     | The ip address to bind to                                                      | `0.0.0.0`                                     |
-| `bind_port`     | The server port on which Minetest will be exposed                                                      | `30000`                                     |
-| `admin_username`     | The username of the user that will be named admin when joining                                                      | empty                                     |
-| `extra_configuration`     | Any other minetest configuration in format `key=value` (one per line), see https://wiki.minetest.net/Minetest.conf                                                       | empty                                     |
-
-Dependencies
-------------
-
-No dependency, Minetest installed from their stable ppa: https://launchpad.net/~minetestdevs/+archive/ubuntu/stable
-
-Example Playbook
-----------------
-
-Sample playbook:
-
-```
-    - name: Install Minetest
-      hosts: all
-      roles:
-        - nautik1.minetest
-```
-
-Sample inventory:
-
-```
-all:
-  hosts:
-    <ip-or-hostname>:
-  vars:
-    minetest_version: 5.3*
-```
-
-License
--------
-
-[WTFPL](https://en.wikipedia.org/wiki/WTFPL)

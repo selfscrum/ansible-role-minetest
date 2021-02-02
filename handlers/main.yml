@@ -1,2 +1,7 @@
 ---
-# handlers file for minetest
+- name: Restart Minetest Service
+  systemd:
+    name: minetest.service
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

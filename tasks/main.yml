@@ -1,5 +1,5 @@
 ---
-# tasks file for minetest
+# tasks file for minetest installation
 
 - name: Upgrade all packages to the latest version
   apt:
@@ -11,7 +11,7 @@
 
 - name: Install minetest
   apt:
-    name: "minetest={{ minetest_version }}"
+    name: "minetest={{ lookup('env','MT_VERSION') }}"
     state: present
 
 - name: Add group "minetest"
@@ -32,16 +32,11 @@
   template:
     src: minetest.conf
     dest: /etc/minetest/
+  notify: "Restart Minetest Service"
 
 - name: Copy unit file
   template:
     src: minetest.service
     dest: /etc/systemd/system/minetest.service
     mode: 0644
-
-- name: Start Minetest service
-  systemd:
-    name: minetest.service
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+  notify: "Restart Minetest Service"

@@ -9,8 +9,8 @@ resource "hcloud_server" "minetest" {
 }
 
 resource "hcloud_volume" "data" {
-  name = format("%s-data-disk", car.cluster_name)
-  size = 25
+  name = format("%s-data-disk", var.cluster_name)
+  size = 50
 }
 
 resource "hcloud_volume_attachment" "data-to-server" {

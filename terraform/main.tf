@@ -35,7 +35,7 @@ provider "hcloud" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "minetest_server" {
-  source = "./modules/minetest_server"
+  source = "../modules/minetest_server"
   cluster_name      = format("%s-%s-server",var.env_stage, var.env_name)
   image             = var.server_image
   server_type       = var.server_type

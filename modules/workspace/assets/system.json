@@ -3,7 +3,7 @@
     "github_repo" : "minetest_server",
     "tfc_organization" :"selfscrum",
     "workspace" : "minetest_edu_server",
-    "env_name" : "rfnl_minetest", 
+    "env_name" : "minetest-edu", 
     "env_stage" : "dev",
     "location" : "nbg1",
     "system_function" : "APPLICATION",

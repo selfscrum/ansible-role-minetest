@@ -1,6 +1,8 @@
-# ansible-role-minetest
+# minetest-edu-server
 
 Provide a stable one-shop-stop routine to install a Hetzner cloud machine with an immutable minetest base installation and merge optional mod projects.
+
+Thanks to @nautik1 for providing the original ansible playbook
 
 ## Install in Terraform Cloud
 

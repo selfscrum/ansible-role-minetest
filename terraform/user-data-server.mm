@@ -62,7 +62,7 @@ mkdir -p /opt/bootstrap
 cd /opt/bootstrap
 
 # get the bootsload project
-git clone https://github.com/selfscrum/ansible-role-minetest
+git clone https://github.com/selfscrum/minetest-edu-server
 
 # create a playbook to run locally
 cat > start.yml << EOF

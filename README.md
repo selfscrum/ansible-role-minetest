@@ -18,4 +18,4 @@ Prerequisite: you need
 * Fill in the sensitive variables - Hetzner API Access Token and defult password for future users of the server
 * Connect the Terraform Workspace with the project repo. Github and gitlab work good. Make sure the terraform directory is set to `terraform` (should be already set).
 * Run the Queue initially once. Terraform starts init and apply scripts and after 2 minutes you have your minetest server.
-* Future changes to the gitlab project lead to an automated update. Be careful, this might destroy your world!
+* Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction.

@@ -24,7 +24,7 @@ variable "mt_bind_address" {}
 variable "mt_bind_port" {}
 variable "mt_admin_name" {}
 
-variable "default_password" {}
+variable "mt_default_password" {}
 
 provider "hcloud" {
   token = var.access_token
@@ -52,7 +52,7 @@ module "minetest_server" {
                       "${path.module}/user-data-server.mm",
                         {
                         hcloud_token           = var.access_token
-                        mt_default_password    = var.default_password
+                        mt_default_password    = var.mt_default_password
                         mt_version             = var.mt_version
                         mt_server_name         = var.mt_server_name
                         mt_server_description  = var.mt_server_description

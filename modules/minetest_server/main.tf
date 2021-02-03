@@ -10,6 +10,7 @@ resource "hcloud_server" "minetest" {
 
 resource "hcloud_volume" "data" {
   name = format("%s-data-disk", var.cluster_name)
+  location = var.location
   size = 50
 }
 

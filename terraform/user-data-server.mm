@@ -47,6 +47,17 @@ Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="userdata.txt"
 #!/bin/bash
 
+# temporary fix due to a hcloud provisioner issue
+if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "" ]] ; then
+      mkdir -p /usr/share/disk
+      mount /dev/sdb /usr/share/disk
+fi
+#end of fix
+
+if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "/mnt/HC_Volume_${disk_id}" ]] ; then
+      ln -s /mnt/HC_Volume_${disk_id} /usr/share/disk
+fi
+
 # allow external access
 ufw allow 30000/udp
 ufw allow 30000/tcp

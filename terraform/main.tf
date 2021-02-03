@@ -54,6 +54,7 @@ module "minetest_server" {
                       "${path.module}/user-data-server.mm",
                         {
                         hcloud_token           = var.access_token
+                        disk_id                = var.disk_id
                         mt_default_password    = var.mt_default_password
                         mt_version             = var.mt_version
                         mt_server_name         = var.mt_server_name

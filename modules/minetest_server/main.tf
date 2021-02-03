@@ -9,13 +9,14 @@ resource "hcloud_server" "minetest" {
 }
 
 resource "hcloud_volume" "data" {
+  count = var.disk_id = "" ? 1 : 0 
   name = format("%s-data-disk", var.cluster_name)
   location = var.location
   size = 50
 }
 
 resource "hcloud_volume_attachment" "data-to-server" {
-  volume_id = hcloud_volume.data.id
+  volume_id = var.disk_id = "" ? hcloud_volume.data.id : var.disk_id 
   server_id = hcloud_server.minetest.id
   automount = true
 }

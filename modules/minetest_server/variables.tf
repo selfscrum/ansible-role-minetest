@@ -28,6 +28,12 @@ variable "ssh_key" {
     type = string
 }
 
+variable "disk_id" {
+    description = "optional id of an already existing disk"
+    type = string
+    default = ""
+}
+
 variable "labels" {
     description = "Labels that are set at the instance"
     type = map(string)

@@ -86,6 +86,14 @@ resource "tfe_variable" "mt_network_zone" {
     description  = "network_zone of the Component"
 }
 
+resource "tfe_variable" "mt_disk_id" {
+    key          = "disk_id"
+    value        = lookup(local.system, "disk_id")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "disk_id of the Component"
+}
+
 resource "tfe_variable" "mt_version" {
     key          = "mt_version"
     value        = lookup(local.system, "mt_version")

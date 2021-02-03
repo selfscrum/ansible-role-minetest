@@ -17,6 +17,7 @@ variable "server_image" {}
 variable "server_type" {}
 variable "keyname" {} 
 variable "network_zone" {}
+variable "disk_id" {}
 variable "mt_version" {}
 variable "mt_server_name" {}
 variable "mt_server_description" {}
@@ -45,6 +46,7 @@ module "minetest_server" {
                       "Stage"  = var.env_stage
   }
   ssh_key           = var.keyname
+  disk_id           = var.disk_id
   user_data         = templatefile (
 # ---------------------------------------------------------------------------------------------------------------------
 # THE MULTIPART/MIXED USER DATA SCRIPT THAT WILL RUN ON THE SERVER INSTANCE WHEN IT'S BOOTING

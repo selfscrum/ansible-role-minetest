@@ -21,7 +21,8 @@ Prerequisite: you need
 * Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction.
 
 # Features to come
-* add other github mod extension per variable
+* add other github mod extensions per variable
 * add mapserver
 * add wireguard client for secure access
 * integrated hugo web site for explanation of locations (links from map)
+* automated backup to cheap cloud storage

@@ -23,5 +23,5 @@ Prerequisite: you need
 # Features to come
 * add other github mod extension per variable
 * add mapserver
-* add wireguard client for easy access
+* add wireguard client for secure access
 * integrated hugo web site for explanation of locations (links from map)

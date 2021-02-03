@@ -54,6 +54,7 @@ if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "" ]] ; then
 fi
 #end of fix
 
+# link target to Hetzner mount
 if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "/mnt/HC_Volume_${disk_id}" ]] ; then
       ln -s /mnt/HC_Volume_${disk_id} /usr/share/disk
 fi

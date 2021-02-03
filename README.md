@@ -1,6 +1,6 @@
 # minetest-edu-server
 
-Provide a stable one-shop-stop routine to install a Hetzner cloud machine with an immutable minetest base installation and merge optional mod projects.
+Provide a stable one-stop-shop routine to install a Hetzner cloud machine with an immutable minetest base installation and merge optional mod projects.
 
 Thanks to @nautik1 for providing the original ansible playbook
 
@@ -18,7 +18,7 @@ Prerequisite: you need
 * Fill in the sensitive variables - Hetzner API Access Token and defult password for future users of the server
 * Connect the Terraform Workspace with the project repo. Github and gitlab work good. Make sure the terraform directory is set to `terraform` (should be already set).
 * Run the Queue initially once. Terraform starts init and apply scripts and after 2 minutes you have your minetest server.
-* Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction.
+* Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction. The external disk is mounted at `/usr/share/disk`.
 
 # Features to come
 * add other github mod extensions per variable

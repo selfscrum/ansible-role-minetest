@@ -24,3 +24,4 @@ Prerequisite: you need
 * add other github mod extension per variable
 * add mapserver
 * add wireguard client for easy access
+* integrated hugo web site for explanation of locations (links from map)

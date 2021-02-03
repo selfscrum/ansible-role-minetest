@@ -14,10 +14,11 @@ resource "hcloud_volume" "data" {
   server_id = hcloud_server.minetest.id
   format = "ext4"
   size = 50
+  automount = true
 }
 
 resource "hcloud_volume_attachment" "data-to-server" {
   volume_id = var.disk_id == "" ? hcloud_volume.data[0].id : var.disk_id 
   server_id = hcloud_server.minetest.id
-  automount = true
+  automount = var.disk_id == "" ? false : true
 }

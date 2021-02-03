@@ -19,3 +19,8 @@ Prerequisite: you need
 * Connect the Terraform Workspace with the project repo. Github and gitlab work good. Make sure the terraform directory is set to `terraform` (should be already set).
 * Run the Queue initially once. Terraform starts init and apply scripts and after 2 minutes you have your minetest server.
 * Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction.
+
+# Features to come
+* add other github mod extension per variable
+* add mapserver
+* add wireguard client for easy access

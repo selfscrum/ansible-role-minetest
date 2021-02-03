@@ -69,7 +69,7 @@ cat > start.yml << EOF
 - name: Install Minetest
   hosts: localhost
   roles:
-    - ansible-role-minetest
+    - minetest-edu-server
 EOF
 
 export MT_DEFAULT_PASSWORD=${mt_default_password}

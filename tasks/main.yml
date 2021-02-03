@@ -1,8 +1,12 @@
 ---
 # tasks file for minetest installation
 
-- name: get minetest repository
-  apt_repository:
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- apt_repository:
     repo: ppa:minetestdevs/stable
 
 - name: Install minetest

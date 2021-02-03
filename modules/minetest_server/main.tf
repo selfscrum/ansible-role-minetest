@@ -12,7 +12,6 @@ resource "hcloud_volume" "data" {
   count = var.disk_id == "" ? 1 : 0 
   name = format("%s-data-disk", var.cluster_name)
   server_id = hcloud_server.minetest.id
-  location = var.location
   format = "ext4"
   size = 50
 }

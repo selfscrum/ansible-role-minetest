@@ -36,3 +36,6 @@
     dest: /etc/systemd/system/minetest.service
     mode: 0644
   notify: "Restart Minetest Service"
+
+- name: install wireguard
+  include: secure.yml

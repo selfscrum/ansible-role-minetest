@@ -10,13 +10,10 @@ resource "hcloud_server" "minetest" {
 
 # create disk only if no id passed in
 resource "hcloud_volume" "data" {
-  depends_on = [
-    hcloud_server.minetest
-  ]
   count = var.disk_id == "" ? 1 : 0 
   name = format("%s-data-disk", var.cluster_name)
   server_id = hcloud_server.minetest.id
-  format = "xfs"
+  format = "ext4"
   size = 50
   automount = true
 }

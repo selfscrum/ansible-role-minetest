@@ -7,7 +7,7 @@ Type=simple
 User=minetest
 Group=minetest
 WorkingDirectory=/home/minetest
-ExecStart=/usr/bin/minetest --config /etc/minetest/minetest.conf --server
+ExecStart=/usr/bin/minetest --config {{ lookup('env','MT_DISK') }}/mtconf/minetest.conf --world {{ lookup('env','MT_DISK') }}/mtworld --server 
 Restart=on-abort
 
 [Install]

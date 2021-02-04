@@ -19,18 +19,24 @@
 - name: Add user "minetest"
   user: name=minetest group=minetest
 
+- name: Change owner of minetest disk
+  shell: |
+    chown -R minetest:minetest "{{ lookup('env','MT_DISK') }}"
+
 - name: Create the configuration directory
   file:
-    path: "{{ lookup('env','MT_DISK') }}/mtconf"
-    owner: root
-    group: root
+    path: "{{ lookup('env','MT_DISK') }}/conf"
+    owner: minetest
+    group: minetest
     state: directory
     mode: '0755'
 
 - name: Copy configuration file
   template:
     src: minetest.conf
-    dest: "{{ lookup('env','MT_DISK') }}/mtconf"
+    dest: "{{ lookup('env','MT_DISK') }}/conf"
+    owner: minetest
+    group: minetest
   notify: "Restart Minetest Service"
 
 - name: Copy unit file

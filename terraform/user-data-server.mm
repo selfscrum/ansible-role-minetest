@@ -49,14 +49,14 @@ Content-Disposition: attachment; filename="userdata.txt"
 
 # temporary fix due to a hcloud provisioner issue
 if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "" ]] ; then
-      mkdir -p /usr/share/disk
-      mount /dev/sdb /usr/share/disk
+      mkdir -p /usr/share/minetest
+      mount /dev/sdb /usr/share/minetest
 fi
 #end of fix
 
 # link target to Hetzner mount
 if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "/mnt/HC_Volume_${disk_id}" ]] ; then
-      ln -s /mnt/HC_Volume_${disk_id} /usr/share/disk
+      ln -s /mnt/HC_Volume_${disk_id} /usr/share/minetest
 fi
 
 # allow external access
@@ -91,7 +91,7 @@ export MT_SERVER_DESCRIPTION=${mt_server_description}
 export MT_BIND_ADDRESS=${mt_bind_address}
 export MT_BIND_PORT=${mt_bind_port}
 export MT_ADMIN_NAME=${mt_admin_name}
-export MT_DISK="/usr/share/disk"
+export MT_DISK="/usr/share/minetest"
 
 # run the playbook
 ansible-playbook start.yml

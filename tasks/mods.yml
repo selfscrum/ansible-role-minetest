@@ -9,4 +9,4 @@
   import_tasks: github_mod.yml
   vars:
     module: unified_inventory
-    module-path: minetest-mods/unified_inventory
+    module_path: minetest-mods/unified_inventory

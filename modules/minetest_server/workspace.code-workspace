@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../../../minetest_server"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}

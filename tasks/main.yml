@@ -2,7 +2,7 @@
 # tasks file for minetest installation
 
 - name: Install wireguard
-  import: secure.yml
+  import-tasks: secure.yml
 
 - name: Get minetest repo
   apt_repository:
@@ -47,5 +47,5 @@
   notify: "Restart Minetest Service"
 
 - name: Install Mods
-  import: mods.yml
+  import-tasks: mods.yml
 

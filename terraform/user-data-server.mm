@@ -68,6 +68,7 @@ ufw reload
 apt-get -y update
 apt install -y ansible
 apt install -y git
+apt install -y unzip
 
 # create bootstrap location
 mkdir -p /opt/bootstrap

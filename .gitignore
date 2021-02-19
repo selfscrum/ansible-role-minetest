@@ -2,3 +2,4 @@
 *tfstate*
 .terraform.lock.hcl
 secure.tfvars
+*.code-workspace

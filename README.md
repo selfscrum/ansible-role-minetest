@@ -12,7 +12,8 @@ Prerequisite: you need
 * a local terraform binary of at least 0.13.x.
 * a local ~/.terraformrc file with an API Token set up to connect to Terraform Cloud.
 
-* Checkout this project then go to `modules/workspace`.
+* If you want to build the server's disk independently from the main project, go to modules/disk first, and follow the README there.
+* Checkout this project then go to `modules/workspace`. Adopt the disk_id in the system.json file if you created the disk separately.
 * Run `terraform init`
 * Run `terraform apply`. The future provisioning workspace will now be created in Terraform Cloud.
 * Fill in the sensitive variables - Hetzner API Access Token and default password for future users of the server

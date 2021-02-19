@@ -2,7 +2,7 @@
 # tasks file for minetest installation
 
 - name: Install wireguard
-  include: secure.yml
+  import: secure.yml
 
 - name: Get minetest repo
   apt_repository:
@@ -33,7 +33,7 @@
 
 - name: Copy configuration file
   template:
-    src: minetest.conf
+    src: minetest.conf.j2
     dest: "{{ lookup('env','MT_DISK') }}/conf"
     owner: minetest
     group: minetest
@@ -41,7 +41,11 @@
 
 - name: Copy unit file
   template:
-    src: minetest.service
+    src: minetest.service.j2
     dest: /etc/systemd/system/minetest.service
     mode: 0644
   notify: "Restart Minetest Service"
+
+- name: Install Mods
+  import: mods.yml
+

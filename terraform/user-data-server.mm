@@ -85,6 +85,8 @@ cat > start.yml << EOF
     - minetest-edu-server
 EOF
 
+chown -R minetest:minetest *
+
 export MT_DEFAULT_PASSWORD=${mt_default_password}
 export MT_VERSION=${mt_version}
 export MT_SERVER_NAME=${mt_server_name}
@@ -96,6 +98,3 @@ export MT_DISK="/usr/share/minetest"
 
 # run the playbook
 ansible-playbook start.yml
-
-# start additional mods if present
-

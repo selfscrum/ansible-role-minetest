@@ -1,6 +1,8 @@
 ---
 # tasks file for minetest installation
 
+- name: Copy .profile
+
 - name: Install wireguard
   import_tasks: secure.yml
 

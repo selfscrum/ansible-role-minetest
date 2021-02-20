@@ -22,8 +22,6 @@
   vars:
     module: books
     module_path: everamzah/books
-    load_mods: 
-      - books
 
 - name: Install display Mod
   import_tasks: mods_github.yml
@@ -47,16 +45,12 @@
   vars:
     module: maptools
     module_path: Calinou/maptools
-    load_mods:
-      - maptools
 
 - name: Install ts_furniture Mod
   import_tasks: mods_github.yml
   vars:
     module: ts_furniture
     module_path: minetest-mods/ts_furniture
-    load_mods:
-      - ts_furniture
 
 - name: Install Minetest-WorldEdit Mod
   import_tasks: mods_github.yml
@@ -75,16 +69,12 @@
   vars:
     module: airboat
     module_path: paramat/airboat
-    load_mods:
-      - airboat
 
 - name: Install poi Mod
   import_tasks: mods_github.yml
   vars:
     module: minetest_poi
     module_path: acmgit/minetest_poi
-    load_mods:
-      - poi
 
 - name: Install mesecons Mod
   import_tasks: mods_github.yml
@@ -130,16 +120,12 @@
   vars:
     module: moreblocks
     module_path: minetest-mods/moreblocks
-    load_mods: 
-      - moreblocks
 
 - name: Install skinsdb Mod
   import_tasks: mods_github.yml
   vars:
     module: skinsdb
     module_path: minetest-mods/skinsdb
-    load_mods:
-      - skinsdb
     load_conf:
       - secure.trusted_mods = skinsdb
 

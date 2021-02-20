@@ -77,14 +77,6 @@ cd /opt/bootstrap
 # get the bootsload project
 git clone https://github.com/selfscrum/minetest-edu-server
 
-# create a playbook to run locally
-cat > start.yml << EOF
-- name: Install Minetest
-  hosts: localhost
-  roles:
-    - minetest-edu-server
-EOF
-
 chown -R minetest:minetest *
 
 export MT_DEFAULT_PASSWORD=${mt_default_password}
@@ -97,4 +89,5 @@ export MT_ADMIN_NAME=${mt_admin_name}
 export MT_DISK="/usr/share/minetest"
 
 # run the playbook
-ansible-playbook start.yml
+cd minetest-edu-server/modules
+ansible-playbook start_configure.yml

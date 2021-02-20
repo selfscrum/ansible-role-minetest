@@ -1,4 +1,4 @@
-- name: "Download {{module}}"
+- name: Download "{{module}}"
   get_url: 
     url: "https://github.com/{{module_path}}/archive/master.zip"
     dest: /tmp/master.zip
@@ -11,8 +11,9 @@
      group: minetest
      remote_src: true
 
-- name: "Add Config Line for {{module}}"
+- name: Add Config Line for "{{module}}"
   lineinfile:
     path: "{{ lookup('env','MT_DISK') }}/data/world.mt"
     regexp: "^load_mod_{{module}} ="
     line: "load_mod_{{module}} = true"
+  notify: "Restart Minetest Service"

@@ -28,9 +28,12 @@
   user: name=minetest group=minetest
 
 - name: Change owner of minetest disk
-  shell: |
-    "chown -R minetest:minetest {{ lookup('env','MT_DISK') }}"
-  
+  file:
+    path: "{{ lookup('env','MT_DISK') }}"
+    recurse: yes
+    owner: minetest
+    group: minetest
+    
 - name: Create the configuration directory
   file:
     path: "{{ lookup('env','MT_DISK') }}/conf"
@@ -53,7 +56,4 @@
     dest: /etc/systemd/system/minetest.service
     mode: 0644
   notify: "Restart Minetest Service"
-
-- name: Install Mods
-  import_tasks: mods.yml
 

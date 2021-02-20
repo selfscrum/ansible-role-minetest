@@ -10,14 +10,8 @@
     name: "resolvconf"
     state: present
 
-# - name: Create wg keys
-#  become: true
-#   shell: |
-#     wg genkey | tee /etc/wireguard/.wg0.client_private_key | wg pubkey > /etc/wireguard/.wg0.client_public_key
-
 # the wireguard setup procedure is not yet fully implemented 
 # 
 # - go to the wireguard server and call /opt/wg/bin/wg_add_client wg0 <mypublickey>
 # - copy the conf output and write it to your /etc/wireguard/wg0.conf file. 
-# - Insert you private key at the indicated location
 # - wg-quick up wg0 on the client

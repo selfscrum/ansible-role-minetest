@@ -1,49 +1,5 @@
 ---
-# tasks file for minetest installation
-
-- name: Copy .profile
-  template:
-    src: .profile.j2
-    dest: /home/minetest/.profile
-    owner: minetest
-    group: minetest
-    mode: 0640
-
-- name: Install wireguard
-  import_tasks: secure.yml
-
-- name: Get minetest repo
-  apt_repository:
-    repo: ppa:minetestdevs/stable
-
-- name: Install minetest
-  apt:
-    name: "minetest={{ lookup('env','MT_VERSION') }}"
-    state: present
-
-- name: Add group "minetest"
-  group: name=minetest
-
-- name: Add user "minetest"
-  user: name=minetest group=minetest
-
-- name: Change owner of minetest disk
-  file:
-    path: "{{ lookup('env','MT_DISK') }}/"
-    recurse: yes
-    owner: minetest
-    group: minetest
-    
-  # shell: |
-  #   "chown -R minetest:minetest {{ lookup('env','MT_DISK') }}/*"
-  
-- name: Create the configuration directory
-  file:
-    path: "{{ lookup('env','MT_DISK') }}/conf"
-    owner: minetest
-    group: minetest
-    state: directory
-    mode: '0755'
+# tasks file for minetest modding
 
 - name: Copy configuration file
   template:
@@ -51,13 +7,6 @@
     dest: "{{ lookup('env','MT_DISK') }}/conf"
     owner: minetest
     group: minetest
-  notify: "Restart Minetest Service"
-
-- name: Copy unit file
-  template:
-    src: minetest.service.j2
-    dest: /etc/systemd/system/minetest.service
-    mode: 0644
   notify: "Restart Minetest Service"
 
 - name: Install Mods

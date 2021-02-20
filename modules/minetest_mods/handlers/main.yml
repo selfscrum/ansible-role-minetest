@@ -1,5 +1,6 @@
 ---
 - name: Restart Minetest Service
+  become: true
   systemd:
     name: minetest.service
     state: restarted

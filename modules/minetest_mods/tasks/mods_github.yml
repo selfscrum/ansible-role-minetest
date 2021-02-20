@@ -14,6 +14,7 @@
 - name: Add Config Line for "{{module}}"
   lineinfile:
     path: "{{ lookup('env','MT_DISK') }}/data/world.mt"
-    regexp: "^load_mod_{{module}} ="
-    line: "load_mod_{{module}} = true"
+    regexp: "^load_mod_{{item}} ="
+    line: "load_mod_{{item}} = true"
+  loop: "{{load_mods}}"
   notify: "Restart Minetest Service"

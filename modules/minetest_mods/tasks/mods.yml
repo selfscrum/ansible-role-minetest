@@ -6,7 +6,43 @@
     group: minetest
 
 - name: Install inventory Mod
-  import_tasks: github_mod.yml
+  import_tasks: mods_github.yml
   vars:
     module: unified_inventory
     module_path: minetest-mods/unified_inventory
+    load_mods: 
+      - unified_inventory
+
+- name: Install areas Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: areas
+    module_path: minetest-mods/areas
+    load_mods: 
+      - areas
+
+- name: Install Books Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: books
+    module_path: everamzah/books
+    load_mods: 
+      - books
+
+- name: Install Display Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: display_modpack
+    module_path: pyrollo/display_modpack
+    load_mods:
+      - font_epilepsy
+      - signs_road
+      - signs_api
+      - steles
+      - font_metro
+      - ontime_clocks
+      - signs
+      - boards
+      - display_api
+      - font_api
+          

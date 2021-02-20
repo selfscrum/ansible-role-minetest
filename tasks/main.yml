@@ -2,6 +2,12 @@
 # tasks file for minetest installation
 
 - name: Copy .profile
+  template:
+    src: .profile.j2
+    dest: /home/minetest/.profile
+    owner: minetest
+    group: minetest
+    mode: 0640
 
 - name: Install wireguard
   import_tasks: secure.yml

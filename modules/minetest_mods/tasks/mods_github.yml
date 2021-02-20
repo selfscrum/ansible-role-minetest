@@ -5,15 +5,19 @@
   when: src|default('github') == 'github'
 
 - name: Download "{{module}}" from ContentDB
-  uri: 
-    url: "https://content.minetest.net/packages/{{module_path}}/download"
-    dest: /tmp/master.zip
-    status_code: 200,300,308
-  register: uri_asset
-  when: src|default('github') == 'ContentDB'
+  block:
+    - name: Get file location from ContentDB
+      uri: 
+        url: "https://content.minetest.net/packages/{{module_path}}/download"
+        dest: /tmp/master.zip
+        status_code: 300
+      register: uri_asset
 
-- debug:
-    msg: "{{uri_asset}}"
+    - name: Donwload redirected file
+      get_url: 
+        url: "{{ uri_asset.location }}"
+        dest: /tmp/master.zip
+  when: src|default('github') == 'ContentDB'
 
 - name: Unzip the Download
   unarchive:

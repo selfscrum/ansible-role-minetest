@@ -5,7 +5,7 @@
   when: src|default('github') == 'github'
 
 - name: Download "{{module}}" from ContentDB
-  get_url: 
+  uri: 
     url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
   when: src|default('github') == 'ContentDB'

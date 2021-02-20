@@ -29,7 +29,7 @@
     load_mods: 
       - books
 
-- name: Install Display Mod
+- name: Install display Mod
   import_tasks: mods_github.yml
   vars:
     module: display_modpack
@@ -46,3 +46,106 @@
       - display_api
       - font_api
           
+- name: Install maptools Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: maptools
+    module_path: Calinou/maptools
+    load_mods:
+      - maptools
+
+- name: Install ts_furniture Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: ts_furniture
+    module_path: minetest-mods/ts_furniture
+    load_mods:
+      - ts_furniture
+
+- name: Install Minetest-WorldEdit Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: Minetest-WorldEdit
+    module_path: Uberi/Minetest-WorldEdit
+    load_mods:
+      - worldedit_shortcommands
+      - worldedit_commands
+      - worldedit_brush
+      - worldedit
+      - worldedit_gui
+
+- name: Install airboat Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: airboat
+    module_path: paramat/airboat
+    load_mods:
+      - airboat
+
+- name: Install poi Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: minetest_poi
+    module_path: acmgit/minetest_poi
+    load_mods:
+      - poi
+
+- name: Install mesecons Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: mesecons
+    module_path: minetest-mods/mesecons
+    load_mods:
+      - mesecons
+      - mesecons_walllever
+      - mesecons_torch
+      - mesecons_switch
+      - mesecons_receiver
+      - mesecons_random
+      - mesecons_solarpanel
+      - mesecons_powerplant
+      - mesecons_pistons
+      - mesecons_noteblock
+      - mesecons_mvps
+      - mesecons_movestones
+      - mesecons_materials
+      - mesecons_lightstone
+      - mesecons_microcontroller
+      - mesecons_insulated
+      - mesecons_pressureplates
+      - mesecons_stickyblocks
+      - mesecons_delayer
+      - mesecons_wires
+      - mesecons_detector
+      - mesecons_hydroturbine
+      - mesecons_luacontroller
+      - mesecons_alias
+      - mesecons_lamp
+      - mesecons_blinkyplant
+      - mesecons_commandblock
+      - mesecons_button
+      - mesecons_doors
+      - mesecons_extrawires
+      - mesecons_fpga
+      - mesecons_gates
+
+- name: Install moreblocks Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: moreblocks
+    module_path: minetest-mods/moreblocks
+    load_mods:
+      - moreblocks
+      
+- name: Install skinsdb Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: skinsdb
+    module_path: minetest-mods/skinsdb
+    load_mods:
+      - skinsdb
+    load_conf:
+      - secure.trusted_mods = skinsdb
+
+      
+      

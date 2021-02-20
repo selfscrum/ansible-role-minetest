@@ -11,10 +11,18 @@
      group: minetest
      remote_src: true
 
-- name: Add Config Line for "{{module}}"
+- name: Add Config Line for "{{module}} in world.mt"
   lineinfile:
     path: "{{ lookup('env','MT_DISK') }}/data/world.mt"
     regexp: "^load_mod_{{item}} ="
     line: "load_mod_{{item}} = true"
   loop: "{{load_mods}}"
+  notify: "Restart Minetest Service"
+
+- name: Add Config Line for "{{module}} in minetest.conf"
+  lineinfile:
+    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    regexp: "^{{item}}"
+    line: "{{item}}"
+  loop: "{{load_conf}}"
   notify: "Restart Minetest Service"

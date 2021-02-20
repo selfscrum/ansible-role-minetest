@@ -9,7 +9,7 @@
     url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
     follow_redirects: urllib2
-    status_code: 200,300
+    status_code: 200,300,308
   when: src|default('github') == 'ContentDB'
 
 - name: Unzip the Download

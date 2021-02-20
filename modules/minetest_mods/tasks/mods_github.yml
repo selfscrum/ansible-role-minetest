@@ -8,9 +8,12 @@
   uri: 
     url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
-    follow_redirects: urllib2
     status_code: 200,300,308
+  register: uri_asset
   when: src|default('github') == 'ContentDB'
+
+- debug:
+    msg: "{{uri_asset}}"
 
 - name: Unzip the Download
   unarchive:

@@ -8,7 +8,6 @@
   uri: 
     url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
-    return_content: yes
     status_code: 200,300
   when: src|default('github') == 'ContentDB'
 

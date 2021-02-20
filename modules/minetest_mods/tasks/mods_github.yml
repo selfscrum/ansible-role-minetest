@@ -8,7 +8,7 @@
   uri: 
     url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
-    follow_redirects: safe
+    follow_redirects: all
   when: src|default('github') == 'ContentDB'
 
 - name: Unzip the Download

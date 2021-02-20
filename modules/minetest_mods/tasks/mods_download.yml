@@ -1,3 +1,10 @@
+#
+# mods_download.yml - Load a minetest mod from the internet and place it correctly into the minetest installation
+#
+# 2020-02-21 created by selfscrum 
+# 
+---
+
 - name: Download "{{module}}" from github
   get_url: 
     url: "https://github.com/{{module_path}}/archive/master.zip"

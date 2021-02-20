@@ -1,3 +1,18 @@
+#
+# mods.yml - Define the mods that are to be loaded on your server
+#            vars:
+#             - module: name of module
+#             - module_path: where is the source module located? this is a part of the download path
+#             - load_mods: list of names that are to be supplied to world.mt file as load directive. 
+#                          Can be omitted if name is equal to module name
+#             - load_conf: config line for minetest.conf file
+#             - src: 'github' (default), which will download from archive/master.zip
+#                    or 'ContentDB', which will follow the redirect on the web site to the orginal upload zip
+#
+# 2020-02-21 created by selfscrum 
+# 
+---
+
 - name: Create mods Directory
   file: 
     path: "{{ lookup('env','MT_DISK') }}/mods"
@@ -5,34 +20,26 @@
     owner: minetest
     group: minetest
 
-- name: Install farming Mod
-  import_tasks: mods_github.yml
-  vars:
-    module: farming
-    module_path: TenPlus1/farming
-    src: ContentDB
-
 - name: Install inventory Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: unified_inventory
     module_path: minetest-mods/unified_inventory
-    src: github
 
 - name: Install areas Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: areas
     module_path: minetest-mods/areas
 
 - name: Install Books Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: books
     module_path: everamzah/books
 
 - name: Install display Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: display_modpack
     module_path: pyrollo/display_modpack
@@ -49,19 +56,19 @@
       - font_api
           
 - name: Install maptools Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: maptools
     module_path: Calinou/maptools
 
 - name: Install ts_furniture Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: ts_furniture
     module_path: minetest-mods/ts_furniture
 
 - name: Install Minetest-WorldEdit Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: Minetest-WorldEdit
     module_path: Uberi/Minetest-WorldEdit
@@ -73,19 +80,19 @@
       - worldedit_gui
 
 - name: Install airboat Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: airboat
     module_path: paramat/airboat
 
 - name: Install poi Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: minetest_poi
     module_path: acmgit/minetest_poi
 
 - name: Install mesecons Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: mesecons
     module_path: minetest-mods/mesecons
@@ -124,13 +131,13 @@
       - mesecons_gates
 
 - name: Install moreblocks Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: moreblocks
     module_path: minetest-mods/moreblocks
 
 - name: Install skinsdb Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: skinsdb
     module_path: minetest-mods/skinsdb
@@ -138,51 +145,80 @@
       - secure.trusted_mods = skinsdb
 
 - name: Install edutest-chatcommands Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: edutest-chatcommands
     module_path: zeuner/edutest-chatcommands
 
 # 2 mods for edutest belong together
 - name: Install edutest Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: edutest
     module_path: zeuner/edutest
 
 # 3 mods for cottages belong together
 - name: Install handle_schematics Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: handle_schematics
     module_path: Sokomine/handle_schematics
 
 - name: Install cottages Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: cottages
     module_path: Sokomine/cottages
 
 - name: Install mg_villages Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: mg_villages
     module_path: Sokomine/mg_villages
 
 - name: Install mapserver Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: mapserver
     module_path: minetest-mapserver/mapserver_mod
 
 - name: Install signs_lib Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: signs_lib
     module_path: mk-pmb/minetest-mod-signs_lib
 
 - name: Install protect Mod
-  import_tasks: mods_github.yml
+  import_tasks: mods_download.yml
   vars:
     module: protect
     module_path: Zeg9/minetest-protect
+
+- name: Install farming Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: farming
+    module_path: TenPlus1/farming
+    src: ContentDB
+
+- name: Install mobs Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: mobs
+    module_path: TenPlus1/mobs
+    src: ContentDB
+
+- name: Install mobs_npc Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: mobs_npc
+    module_path: TenPlus1/mobs_npc
+    src: ContentDB
+
+- name: Install mobs_animal Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: mobs_animal
+    module_path: TenPlus1/mobs_animal
+    src: ContentDB
+

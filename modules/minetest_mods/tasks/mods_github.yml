@@ -2,13 +2,13 @@
   get_url: 
     url: "https://github.com/{{module_path}}/archive/master.zip"
     dest: /tmp/master.zip
-  when src == "github"
+  when: "{{src|default('github')}}" == 'github'
 
 - name: Download "{{module}}" from ContentDB
   get_url: 
     url: "https://content.minetest.net/packages/{{module_path}}/download/archive/master.zip"
     dest: /tmp/master.zip
-  when src == "ContentDB"
+  when: "{{src|default('github')}}" == 'ContentDB'
 
 - name: Unzip the Download
   unarchive:

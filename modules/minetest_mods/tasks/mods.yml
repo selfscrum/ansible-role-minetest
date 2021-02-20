@@ -129,5 +129,54 @@
     load_conf:
       - secure.trusted_mods = skinsdb
 
-      
-      
+- name: Install edutest-chatcommands Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: edutest-chatcommands
+    module_path: zeuner/edutest-chatcommands
+
+# 2 mods for edutest belong together
+- name: Install edutest Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: edutest
+    module_path: zeuner/edutest
+
+# 3 mods for cottages belong together
+- name: Install handle_schematics Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: handle_schematics
+    module_path: Sokomine/handle_schematics
+
+- name: Install cottages Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: cottages
+    module_path: Sokomine/cottages
+
+- name: Install mg_villages Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: mg_villages
+    module_path: Sokomine/mg_villages
+
+- name: Install mapserver Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: mapserver
+    module_path: minetest-mapserver/mapserver_mod
+
+- name: Install signs_lib Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: signs_lib
+    module_path: mk-pmb/minetest-mod-signs_lib
+
+- name: Install protect Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: protect
+    module_path: Zeg9/minetest-protect
+
+

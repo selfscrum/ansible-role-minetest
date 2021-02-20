@@ -5,6 +5,13 @@
     owner: minetest
     group: minetest
 
+- name: Install farming Mod
+  import_tasks: mods_github.yml
+  vars:
+    module: farming
+    module_path: TenPlus1/farming
+    src: ContentDB
+
 - name: Install inventory Mod
   import_tasks: mods_github.yml
   vars:
@@ -179,10 +186,3 @@
   vars:
     module: protect
     module_path: Zeg9/minetest-protect
-
-- name: Install farming Mod
-  import_tasks: mods_github.yml
-  vars:
-    module: farming
-    module_path: TenPlus1/farming
-    src: ContentDB

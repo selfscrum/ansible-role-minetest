@@ -6,7 +6,7 @@
 
 - name: Download "{{module}}" from ContentDB
   get_url: 
-    url: "https://content.minetest.net/packages/{{module_path}}/download/archive/master.zip"
+    url: "https://content.minetest.net/packages/{{module_path}}/download"
     dest: /tmp/master.zip
   when: src|default('github') == 'ContentDB'
 

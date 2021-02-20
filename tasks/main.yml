@@ -29,7 +29,9 @@
 
 - name: Change owner of minetest disk
   shell: |
-    chown -R minetest:minetest "{{ lookup('env','MT_DISK') }}"
+    "chown -R minetest:minetest {{ lookup('env','MT_DISK') }}"
+  warn: false
+  ignore_errors: yes
 
 - name: Create the configuration directory
   file:

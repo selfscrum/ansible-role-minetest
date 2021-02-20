@@ -1,16 +1,19 @@
 - name: Install wireguard
+  become: true
   apt:
     name: "wireguard"
     state: present
 
 - name: Install resolvconf
+  become: true
   apt:
     name: "resolvconf"
     state: present
 
-- name: Create wg keys
-  shell: |
-    wg genkey | tee /etc/wireguard/.wg0.client_private_key | wg pubkey > /etc/wireguard/.wg0.client_public_key
+# - name: Create wg keys
+#  become: true
+#   shell: |
+#     wg genkey | tee /etc/wireguard/.wg0.client_private_key | wg pubkey > /etc/wireguard/.wg0.client_public_key
 
 # the wireguard setup procedure is not yet fully implemented 
 # 

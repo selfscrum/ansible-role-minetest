@@ -1,7 +1,14 @@
-- name: Download "{{module}}"
+- name: Download "{{module}}" from github
   get_url: 
     url: "https://github.com/{{module_path}}/archive/master.zip"
     dest: /tmp/master.zip
+  when "{{src|default('github')}}" == 'github'
+
+- name: Download "{{module}}" from ContentDB
+  get_url: 
+    url: "https://github.com/{{module_path}}/archive/master.zip"
+    dest: /tmp/master.zip
+  when "{{src|default('github')}}" == 'ContentDB'
 
 - name: Unzip the Download
   unarchive:
@@ -11,7 +18,7 @@
      group: minetest
      remote_src: true
 
-- name: Add Config Line for "{{module}}"" in world.mt
+- name: Add Config Line for "{{module}}" in world.mt
   lineinfile:
     path: "{{ lookup('env','MT_DISK') }}/data/world.mt"
     regexp: "^load_mod_{{item}} ="
@@ -19,7 +26,7 @@
   loop: "{{ load_mods | default( [ module ] ) }}"
   notify: "Restart Minetest Service"
 
-- name: Add Config Line for "{{module}}"" in minetest.conf
+- name: Add Config Line for "{{module}}" in minetest.conf
   lineinfile:
     path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
     regexp: "^{{item}}"

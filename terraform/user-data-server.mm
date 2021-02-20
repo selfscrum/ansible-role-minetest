@@ -48,10 +48,10 @@ Content-Disposition: attachment; filename="userdata.txt"
 #!/bin/bash
 
 # temporary fix due to a hcloud provisioner issue
-if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "" ]] ; then
-      mkdir -p /usr/share/minetest
-      mount /dev/sdb /usr/share/minetest
-fi
+#if [[ $(lsblk -n /dev/sdb | awk -F' ' '{print $7}') == "" ]] ; then
+#      mkdir -p /usr/share/minetest
+#      mount /dev/sdb /usr/share/minetest
+#fi
 #end of fix
 
 # link target to Hetzner mount

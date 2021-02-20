@@ -10,16 +10,12 @@
   vars:
     module: unified_inventory
     module_path: minetest-mods/unified_inventory
-    load_mods: 
-      - unified_inventory
 
 - name: Install areas Mod
   import_tasks: mods_github.yml
   vars:
     module: areas
     module_path: minetest-mods/areas
-    load_mods: 
-      - areas
 
 - name: Install Books Mod
   import_tasks: mods_github.yml

@@ -1,7 +1,7 @@
 ---
 # tasks file for minetest modding
 
-- name: Copy configuration file
+- name: Copy configuration template
   template:
     src: minetest.conf.j2
     dest: "{{ lookup('env','MT_DISK') }}/conf"

@@ -1,5 +1,5 @@
-- name: Install and configure Minetest
+- name: Install and configure Minetest mods
   hosts: localhost
   roles:
-    - minetest_configure
+    - minetest_mods
     

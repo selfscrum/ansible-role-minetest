@@ -42,7 +42,7 @@
     state: directory
     mode: '0755'
 
-- name: Copy configuration file
+- name: Copy configuration template
   template:
     src: minetest.conf.j2
     dest: "{{ lookup('env','MT_DISK') }}/conf"

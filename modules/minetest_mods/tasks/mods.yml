@@ -134,8 +134,6 @@
   vars:
     module: moreblocks
     module_path: minetest-mods/moreblocks
-    load_mods:
-      - moreblocks
       
 - name: Install skinsdb Mod
   import_tasks: mods_github.yml

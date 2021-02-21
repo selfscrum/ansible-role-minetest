@@ -27,7 +27,7 @@
 - name: Unzip the Download
   unarchive:
     src: "{{ lookup('env','MT_DISK') }}/textures/downloads/texture.zip"
-    dest: "{{ lookup('env','MT_DISK') }}/textures/downloads
+    dest: "{{ lookup('env','MT_DISK') }}/textures/downloads"
     owner: minetest
     group: minetest
     remote_src: true

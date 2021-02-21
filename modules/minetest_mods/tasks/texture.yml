@@ -4,6 +4,9 @@
 # 2020-02-21 created by selfscrum 
 # 
 ---
+- name: Select the texture package
+  set_fact: 
+    texture: 'drummyfish/drummyfish'
 
 - name: Create textures Directory
   file: 
@@ -14,7 +17,7 @@
 
 - name: Download Texture path from ContentDB
   uri: 
-    url: "https://content.minetest.net/packages/drummyfish/drummyfish/download"
+    url: "https://content.minetest.net/packages/{{texture}}/download"
     dest: /tmp/redirect
     status_code: 300
   register: texture_asset
@@ -32,7 +35,7 @@
     group: minetest
     remote_src: true
 
-- name: Move the Package
+- name: Get the Package Directory Name
   find: 
     path: "{{ lookup('env','MT_DISK') }}/textures/downloads"
     file_type: directory
@@ -40,4 +43,4 @@
 
 
 - debug: 
-    msg: "{{texture_dir}}.files[0].path"
+    msg: "{{texture_dir| json_query('files[0].path')}}"

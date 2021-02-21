@@ -15,7 +15,7 @@
 - name: Install pip helper for ansible
   become: yes
   apt:
-    name: pythin3-pip
+    name: python3-pip
 
 - name: Install json helper for ansible
   become: yes

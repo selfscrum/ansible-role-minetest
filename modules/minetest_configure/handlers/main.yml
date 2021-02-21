@@ -1,5 +1,6 @@
 ---
 - name: Restart Minetest Service
+  become: yes
   systemd:
     name: minetest.service
     state: restarted
@@ -7,6 +8,7 @@
     daemon_reload: yes
 
 - name: Restart Mapserver Service
+  become: yes
   systemd:
     name: mapserver.service
     state: restarted

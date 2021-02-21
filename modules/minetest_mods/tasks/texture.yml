@@ -41,6 +41,5 @@
     file_type: directory
   register: texture_dir
 
-
-- debug: 
-    msg: "{{texture_dir| json_query('files[0].path')}}"
+- name: Copy texture dir to the default place
+  command: mv "{{texture_dir| json_query('files[0].path')}}" "{{ lookup('env','MT_DISK') }}/textures/server"

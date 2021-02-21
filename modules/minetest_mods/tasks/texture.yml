@@ -50,5 +50,5 @@
     group: minetest
 
 - name: Copy texture dir to the default place
-  shell: cp -R "{{(texture_dir| json_query('files[0].path')).split(' ') | join('\\ ')}}/* {{ lookup('env','MT_DISK') }}/textures/server"
+  shell: "cp -R {{(texture_dir| json_query('files[0].path')).split(' ') | join('\\ ')}}/* {{ lookup('env','MT_DISK') }}/textures/server"
   notify: "Restart Minetest Service"

@@ -2,7 +2,7 @@
 # confgichanges.yml - modify minetest.conf for special module needs
 
 - name: Get the Mapserver Config
-  shell: "cat {{ lookup('env','MT_DISK') }}/conf/mapserver.json"
+  shell: "cat {{ lookup('env','MT_DISK') }}/data/mapserver.json"
   register: mps_config
 
 - name: extract secret key from mapserver config

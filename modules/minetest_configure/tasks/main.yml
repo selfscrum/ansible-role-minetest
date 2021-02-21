@@ -55,9 +55,10 @@
 - name: Copy configuration template
   template:
     src: minetest.conf.j2
-    dest: "{{ lookup('env','MT_DISK') }}/conf"
+    dest: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
     owner: minetest
     group: minetest
+    mode: 0640
   notify: "Restart Minetest Service"
 
 - name: Copy unit file

@@ -12,6 +12,6 @@
 - name: Install Texture
   import_tasks: texture.yml
 
-# - name: Install Mods
-#   import_tasks: mods.yml
+- name: Install Mods
+  import_tasks: mods.yml
 

@@ -8,7 +8,7 @@
     group: minetest
 
 - name: Copy unit file
-  become: true
+  become: yes
   template:
     src: mapserver.service.j2
     dest: /etc/systemd/system/mapserver.service

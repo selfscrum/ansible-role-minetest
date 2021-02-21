@@ -166,7 +166,9 @@
     module: handle_schematics
     module_path: Sokomine/handle_schematics
     load_mods:
-      - handle_schematics-master
+      - handle_schematics
+    move: true
+
 
 - name: Install cottages Mod
   import_tasks: mods_download.yml
@@ -174,7 +176,8 @@
     module: cottages
     module_path: Sokomine/cottages
     load_mods:
-      - cottages-master
+      - cottages
+    move: true
 
 - name: Install mg_villages Mod
   import_tasks: mods_download.yml
@@ -182,7 +185,8 @@
     module: mg_villages
     module_path: Sokomine/mg_villages
     load_mods:
-      - mg_villages-master
+      - mg_villages
+    move: true
 
 - name: Install mapserver Mod
   import_tasks: mods_download.yml

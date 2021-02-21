@@ -28,11 +28,24 @@
 
 - name: Unzip the Download
   unarchive:
-     src: /tmp/master.zip
-     dest: "{{ lookup('env','MT_DISK') }}/mods"
-     owner: minetest
-     group: minetest
-     remote_src: true
+    src: /tmp/master.zip
+    dest: "{{ lookup('env','MT_DISK') }}/mods"
+    owner: minetest
+    group: minetest
+    remote_src: true
+
+- name: Move the Mod
+  block: 
+  - name: Stat the original Direcory
+    stat: 
+      path: "{{ lookup('env','MT_DISK') }}/mods/{{module}}-master"
+    register: master_mod
+
+  - name: Move
+    command: "mv {{ lookup('env','MT_DISK') }}/mods/{{module}}-master {{ lookup('env','MT_DISK') }}/mods/{{module}}"
+    when: master_mod.stat.exists
+    
+  when: move|default('false')
 
 - name: Add Config Line for "{{module}}" in world.mt
   lineinfile:

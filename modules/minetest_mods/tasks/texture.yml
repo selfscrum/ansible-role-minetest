@@ -9,6 +9,7 @@
     texture: 'drummyfish/drummyfish'
 
 - name: Create textures Directory
+  become: yes
   file: 
     path: "{{ lookup('env','MT_DISK') }}/textures/downloads"
     state: directory

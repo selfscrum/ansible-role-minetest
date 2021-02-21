@@ -43,3 +43,4 @@
 
 - name: Copy texture dir to the default place
   command: mv "{{texture_dir| json_query('files[0].path')}}" "{{ lookup('env','MT_DISK') }}/textures/server"
+  notify: "Restart Minetest Service"

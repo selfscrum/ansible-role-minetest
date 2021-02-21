@@ -6,7 +6,7 @@
   register: mps_config
 
 - debug:
-    msg: "{{mps_config}}"
+    msg: "{{mps_config | from_json | json_query('webapi.secretkey')}}"
 
 - name: extract secret key from mapserver config
   set_fact:

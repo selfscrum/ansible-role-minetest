@@ -12,6 +12,10 @@
 - name: Install wireguard
   import_tasks: secure.yml
 
+- name: Install json helper for ansible
+  pip:
+    name: jmespath
+
 - name: Get minetest repo
   apt_repository:
     repo: ppa:minetestdevs/stable

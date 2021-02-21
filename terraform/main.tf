@@ -24,6 +24,8 @@ variable "mt_server_description" {}
 variable "mt_bind_address" {}
 variable "mt_bind_port" {}
 variable "mt_admin_name" {}
+variable "mt_mps_version" {}
+variable "mt_mps_platform" {}
 
 variable "mt_default_password" {}
 
@@ -62,6 +64,8 @@ module "minetest_server" {
                         mt_bind_address        = var.mt_bind_address
                         mt_bind_port           = var.mt_bind_port
                         mt_admin_name          = var.mt_admin_name
+                        mt_mps_version         = var.mt_mps_version
+                        mt_mps_platform        = var.mt_mps_platform
                         }
                       )
 }

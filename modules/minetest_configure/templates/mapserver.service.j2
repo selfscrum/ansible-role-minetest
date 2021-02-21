@@ -1,0 +1,14 @@
+[Unit]
+Description=Minetest Mapserver
+After=network.target
+
+[Service]
+Type=simple
+User=minetest
+Group=minetest
+WorkingDirectory={{lookup('env','MT_DISK')}}/data
+ExecStart={{ lookup('env','MT_DISK') }}/data/mapserver
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

@@ -86,6 +86,8 @@ export MT_SERVER_DESCRIPTION=${mt_server_description}
 export MT_BIND_ADDRESS=${mt_bind_address}
 export MT_BIND_PORT=${mt_bind_port}
 export MT_ADMIN_NAME=${mt_admin_name}
+export MT_MPS_VERSION=${mt_mps_version}
+export MT_MPS_PLATFORM=${mt_mps_platform}
 export MT_DISK="/usr/share/minetest"
 
 # run the playbook

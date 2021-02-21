@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=minetest
 Group=minetest
-WorkingDirectory=/home/minetest
+WorkingDirectory={{lookup('env','MT_DISK'}}
 ExecStart=/usr/bin/minetest --config {{ lookup('env','MT_DISK') }}/conf/minetest.conf --world {{ lookup('env','MT_DISK') }}/data --server 
 Restart=on-abort
 

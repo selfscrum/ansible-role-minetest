@@ -17,5 +17,7 @@
     "mt_server_description": "Willkommen bei Minetest",
     "mt_bind_address": "0.0.0.0",
     "mt_bind_port": "30000",
-    "mt_admin_name" : "mt_admin"
+    "mt_admin_name" : "mt_admin",
+    "mt_mps_version": "4.2",
+    "mt_mps_platform": "mapserver-linux-x86_64"
 }

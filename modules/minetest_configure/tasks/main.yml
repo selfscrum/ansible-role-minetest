@@ -68,3 +68,6 @@
     mode: 0644
   notify: "Restart Minetest Service"
 
+- name: Install Mapserver
+  import_tasks: mapserver.yml
+  notify: "Restart Minetest Service"

@@ -5,3 +5,10 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
+
+- name: Restart Mapserver Service
+  systemd:
+    name: mapserver.service
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

@@ -148,7 +148,6 @@ resource "tfe_variable" "mt_admin_name" {
     sensitive    = false
 }
 
-
 resource "tfe_variable" "mt_default_password" {
     key          = "mt_default_password"
     value        = ""
@@ -156,4 +155,22 @@ resource "tfe_variable" "mt_default_password" {
     workspace_id = tfe_workspace.minetest_server.id
     description  = "Default password for new Minetest Server users"
     sensitive    = true
+}
+
+resource "tfe_variable" "mt_mps_version" {
+    key          = "mt_mps_version"
+    value        = lookup(local.system, "mt_mps_version")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "Minetest Mapserver Version"
+    sensitive    = false
+}
+
+resource "tfe_variable" "mt_mps_platform" {
+    key          = "mt_mps_platform"
+    value        = lookup(local.system, "mt_mps_platform")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "Minetest Mapserver Platform Name"
+    sensitive    = false
 }

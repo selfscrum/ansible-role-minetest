@@ -1,0 +1,15 @@
+  
+- name: Download mapserver binary from github
+  get_url: 
+    url: "https://github.com/minetest-mapserver/mapserver/releases/download/{{lookup('env','MT_MPS_VERSION')}}/{{lookup('env','MT_MPS_PLATFORM')}}"
+    dest: "{{ lookup('env','MT_DISK') }}/data/mapserver"
+    mode: "0750"
+    owner: minetest
+    group: minetest
+
+- name: Copy unit file
+  template:
+    src: mapserver.service.j2
+    dest: /etc/systemd/system/mapserver.service
+    mode: 0644
+  notify: "Restart Mapserver Service"

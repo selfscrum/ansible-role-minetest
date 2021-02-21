@@ -33,9 +33,11 @@
     remote_src: true
 
 - name: Move the Package
-  stat: 
-    path: "{{ lookup('env','MT_DISK') }}/textures/downloads/*"
-  register: master_mod
+  find: 
+    path: "{{ lookup('env','MT_DISK') }}/textures/downloads"
+    file_type: directory
+  register: texture_dir
+
 
 - debug: 
-    msg: "{{master_mod}}"
+    msg: "{{texture_dir}}"

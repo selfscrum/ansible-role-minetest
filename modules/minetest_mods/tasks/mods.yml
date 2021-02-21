@@ -194,14 +194,12 @@
   vars:
     module: mapserver
     module_path: minetest-mapserver/mapserver_mod
-    move: true
 
 - name: Install signs_lib Mod
   import_tasks: mods_download.yml
   vars:
     module: signs_lib
     module_path: mk-pmb/minetest-mod-signs_lib
-    move: true
 
 - name: Install protect Mod
   import_tasks: mods_download.yml

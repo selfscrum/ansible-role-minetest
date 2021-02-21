@@ -121,6 +121,15 @@ resource "tfe_variable" "mt_server_description" {
     sensitive    = false
 }
 
+resource "tfe_variable" "mt_server_address" {
+    key          = "mt_server_address"
+    value        = lookup(local.system, "mt_server_address")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "Minetest Server Host Name"
+    sensitive    = false
+}
+
 resource "tfe_variable" "mt_bind_address" {
     key          = "mt_bind_address"
     value        = lookup(local.system, "mt_bind_address")

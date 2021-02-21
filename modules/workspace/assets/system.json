@@ -15,6 +15,7 @@
     "mt_version": "5.3*",
     "mt_server_name": "RFNL Minetest Server",
     "mt_server_description": "Willkommen bei Minetest",
+    "mt_server_address": "minetest.rfnl.internal",
     "mt_bind_address": "0.0.0.0",
     "mt_bind_port": "30000",
     "mt_admin_name" : "mt_admin",

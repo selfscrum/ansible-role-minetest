@@ -18,3 +18,12 @@ unlimited_player_transfer_distance = false
 # mode
 creative_mode = true
 default_privs = student, interact, shout, teleport, fast, fly
+
+# allow http access
+secure.http_mods = mapserver
+
+# Other mapserver settings
+mapserver.url = {{ lookup('env','MT_SERVER_ADDRESS') }}:8080
+mapserver.enable_crafting = true
+mapserver.key = unknown
+

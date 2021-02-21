@@ -15,3 +15,5 @@
 # - go to the wireguard server and call /opt/wg/bin/wg_add_client wg0 <mypublickey>
 # - copy the conf output and write it to your /etc/wireguard/wg0.conf file. 
 # - wg-quick up wg0 on the client
+#
+

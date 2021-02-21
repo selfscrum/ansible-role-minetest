@@ -1,0 +1,38 @@
+#
+# confgichanges.yml - modify minetest.conf for special module needs
+
+- name: Get the Mapserver Config
+  shell: "cat {{ lookup('env','MT_DISK') }}/conf/mapserver.json"
+  register: mps_config
+
+- name: extract secret key from mapserver config
+  set_fact:
+    mps_key: "{{mps_config.stdout | json_query('webapi.secretkey')}}"
+
+- name: Add Config Line for "mapserver.key"
+  lineinfile:
+    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    regexp: "^mapserver.key"
+    line: "mapserver.key = {{mps_key}}"
+  notify: 
+    - "Restart Minetest Service"
+    - "Restart Mapserver Service"
+
+- name: Add Config Line for "secure.http_mods"
+  lineinfile:
+    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    regexp: "^secure.http_mods"
+    line: "secure.http_mods = mapserver"
+  notify: 
+    - "Restart Minetest Service"
+    - "Restart Mapserver Service"
+
+- name: Add Config Line for "secure.trusted_mods"
+  lineinfile:
+    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    regexp: "^secure.trusted_mods"
+    line: "secure.trusted_mods = skinsdb"
+  notify: 
+    - "Restart Minetest Service"
+    - "Restart Mapserver Service"
+

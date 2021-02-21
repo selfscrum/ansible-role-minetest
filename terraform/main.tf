@@ -20,6 +20,7 @@ variable "network_zone" {}
 variable "disk_id" {}
 variable "mt_version" {}
 variable "mt_server_name" {}
+variable "mt_server_address" {}
 variable "mt_server_description" {}
 variable "mt_bind_address" {}
 variable "mt_bind_port" {}
@@ -61,6 +62,7 @@ module "minetest_server" {
                         mt_version             = var.mt_version
                         mt_server_name         = var.mt_server_name
                         mt_server_description  = var.mt_server_description
+                        mt_server_address      = var.mt_server_address
                         mt_bind_address        = var.mt_bind_address
                         mt_bind_port           = var.mt_bind_port
                         mt_admin_name          = var.mt_admin_name

@@ -1,16 +1,11 @@
 ---
 # tasks file for minetest modding
 
-- name: Copy configuration template
-  template:
-    src: minetest.conf.j2
-    dest: "{{ lookup('env','MT_DISK') }}/conf"
-    owner: minetest
-    group: minetest
-  notify: "Restart Minetest Service"
-
 - name: Install Texture
   import_tasks: texture.yml
 
 - name: Install Mods
   import_tasks: mods.yml
+
+- name: Make Config Changes
+  import_tasks: configchanges.yml

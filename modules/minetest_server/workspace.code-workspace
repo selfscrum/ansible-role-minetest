@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../.."
+		},
+		{
+			"path": "../../../../../../home/desixma/self"
 		}
 	],
 	"settings": {}

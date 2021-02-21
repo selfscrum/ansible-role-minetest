@@ -7,7 +7,7 @@
     owner: minetest
     group: minetest
 
-# wg0 must be already in operation for this!
+# wg0 must be already in operation for this! Since it is not yet implemented fully, you might need to update ufw manually
 - name: Open Firewall for vpn members. 
   become: yes
   command: ufw allow in on wg0 to any port 8080 proto tcp

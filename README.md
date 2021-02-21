@@ -24,6 +24,9 @@ Prerequisite: you need
 
 ## Configure Mods
 
+Before you start the mod configuration, the server must complete installation, which takes some minutes.
+Ensure that your environment and your `~.profile` file contains the proper `MT_` environment variables when you login. 
+
 Mods can be installed independently from another playbook on the installed server, which is located in `/opt/bootstrap/minetest-edu-server/modules/start_mods.yml`.
 This playbook load all modules and might modify the existing minetest.conf After successful deployment, the minetest service is automatically restarted.
 

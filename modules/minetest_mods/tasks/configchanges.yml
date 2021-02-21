@@ -18,8 +18,8 @@
     regexp: "^mapserver.key"
     line: "mapserver.key = {{mps_key}}"
   notify: 
-    - "Restart Minetest Service"
-    - "Restart Mapserver Service"
+    - Restart Minetest Service
+    - Restart Mapserver Service
 
 - name: Add Config Line for "secure.http_mods"
   lineinfile:
@@ -27,8 +27,8 @@
     regexp: "^secure.http_mods"
     line: "secure.http_mods = mapserver"
   notify: 
-    - "Restart Minetest Service"
-    - "Restart Mapserver Service"
+    - Restart Minetest Service
+    - Restart Mapserver Service
 
 - name: Add Config Line for "secure.trusted_mods"
   lineinfile:
@@ -36,6 +36,6 @@
     regexp: "^secure.trusted_mods"
     line: "secure.trusted_mods = skinsdb"
   notify: 
-    - "Restart Minetest Service"
-    - "Restart Mapserver Service"
+    - Restart Minetest Service
+    - Restart Mapserver Service
 

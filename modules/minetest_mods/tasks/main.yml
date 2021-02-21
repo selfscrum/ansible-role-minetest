@@ -9,6 +9,9 @@
     group: minetest
   notify: "Restart Minetest Service"
 
+- name: Install Texture
+  import_tasks: texture.yml
+  
 - name: Install Mods
   import_tasks: mods.yml
 

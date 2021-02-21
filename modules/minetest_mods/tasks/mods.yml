@@ -1,6 +1,6 @@
 #
 # mods.yml - Define the mods that are to be loaded on your server
-#            vars:
+#            vars for each call to mods_download:
 #             - module: name of module
 #             - module_path: where is the source module located? this is a part of the download path
 #             - load_mods: list of names that are to be supplied to world.mt file as load directive. 
@@ -8,6 +8,7 @@
 #             - load_conf: config line for minetest.conf file
 #             - src: 'github' (default), which will download from archive/master.zip
 #                    or 'ContentDB', which will follow the redirect on the web site to the orginal upload zip
+#             - move: if true, try to move the unzipped mod directory from <module>-master to <module>. Some mods rely on the proper name.
 #
 # 2020-02-21 created by selfscrum 
 # 
@@ -210,7 +211,7 @@
     load_mods:
       - protector
     move: true
-    
+
 - name: Install farming Mod
   import_tasks: mods_download.yml
   vars:

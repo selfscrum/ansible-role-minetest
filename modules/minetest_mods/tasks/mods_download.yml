@@ -41,8 +41,19 @@
       path: "{{ lookup('env','MT_DISK') }}/mods/{{module}}-master"
     register: master_mod
 
-  - name: Move
-    command: "mv {{ lookup('env','MT_DISK') }}/mods/{{module}}-master {{ lookup('env','MT_DISK') }}/mods/{{module}}"
+  - name: Create mods Directory
+    file: 
+      path: "{{ lookup('env','MT_DISK') }}/mods/{{module}}"
+      state: directory
+      owner: minetest
+      group: minetest
+
+  - name: Copy
+    command: "cp -R {{ lookup('env','MT_DISK') }}/mods/{{module}}-master/* {{ lookup('env','MT_DISK') }}/mods/{{module}}"
+    when: master_mod.stat.exists
+
+  - name: Remove
+    command: "rm -rf {{ lookup('env','MT_DISK') }}/mods/{{module}}-master"
     when: master_mod.stat.exists
     
   when: move|default(false) == true

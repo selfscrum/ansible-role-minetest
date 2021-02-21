@@ -42,6 +42,13 @@
     file_type: directory
   register: texture_dir
 
+- name: Create server Directory
+  file: 
+    path: "{{ lookup('env','MT_DISK') }}/textures/server"
+    state: directory
+    owner: minetest
+    group: minetest
+
 - name: Copy texture dir to the default place
-  command: mv "{{texture_dir| json_query('files[0].path')}}" "{{ lookup('env','MT_DISK') }}/textures/server"
+  command: cp -R "{{texture_dir| json_query('files[0].path')}}/*" "{{ lookup('env','MT_DISK') }}/textures/server"
   notify: "Restart Minetest Service"

@@ -7,6 +7,12 @@
     owner: minetest
     group: minetest
 
+# wg0 must be already in operation for this!
+- name: Open Firewall for vpn members. 
+  become: yes
+  command: ufw allow in on wg0 to any port 8080 proto tcp
+  ignore_errors: yes
+
 - name: Copy unit file
   become: yes
   template:

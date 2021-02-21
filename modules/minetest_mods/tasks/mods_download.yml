@@ -49,7 +49,7 @@
       group: minetest
 
   - name: Copy
-    command: "cp -R {{ lookup('env','MT_DISK') }}/mods/{{module}}-master/* {{ lookup('env','MT_DISK') }}/mods/{{module}}"
+    shell: "cp -R {{ lookup('env','MT_DISK') }}/mods/{{module}}-master/* {{ lookup('env','MT_DISK') }}/mods/{{module}}"
     when: master_mod.stat.exists
 
   - name: Remove

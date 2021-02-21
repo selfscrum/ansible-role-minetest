@@ -208,7 +208,6 @@
     module_path: Zeg9/minetest-protect
     load_mods:
       - protector
-    move: true
 
 - name: Install farming Mod
   import_tasks: mods_download.yml

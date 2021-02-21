@@ -40,4 +40,4 @@
 
 
 - debug: 
-    msg: "{{texture_dir}}"
+    msg: "{{texture_dir}}.files[0].path"

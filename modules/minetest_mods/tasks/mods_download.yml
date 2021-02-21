@@ -45,7 +45,7 @@
     command: "mv {{ lookup('env','MT_DISK') }}/mods/{{module}}-master {{ lookup('env','MT_DISK') }}/mods/{{module}}"
     when: master_mod.stat.exists
     
-  when: move|default('false')
+  when: move|default(false) == true
 
 - name: Add Config Line for "{{module}}" in world.mt
   lineinfile:

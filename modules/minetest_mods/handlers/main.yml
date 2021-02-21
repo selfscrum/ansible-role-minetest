@@ -1,8 +1,18 @@
 ---
 - name: Restart Minetest Service
-  become: true
+  listen: Restart Minetest Service
+  become: yes
   systemd:
     name: minetest.service
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+- name: Restart Mapserver Service
+  listen: Restart Mapserver Service
+  become: yes
+  systemd:
+    name: mapserver.service
     state: restarted
     enabled: yes
     daemon_reload: yes

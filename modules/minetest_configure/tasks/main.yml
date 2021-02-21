@@ -12,6 +12,10 @@
 - name: Install wireguard
   import_tasks: secure.yml
 
+- name: Install pip helper for ansible
+  apt:
+    name: pip
+
 - name: Install json helper for ansible
   pip:
     name: jmespath

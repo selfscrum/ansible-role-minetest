@@ -13,10 +13,12 @@
   import_tasks: secure.yml
 
 - name: Install pip helper for ansible
+  become: yes
   apt:
-    name: pip
+    name: pythin3-pip
 
 - name: Install json helper for ansible
+  become: yes
   pip:
     name: jmespath
 

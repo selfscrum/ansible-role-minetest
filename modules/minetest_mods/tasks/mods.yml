@@ -88,7 +88,7 @@
 - name: Install poi Mod
   import_tasks: mods_download.yml
   vars:
-    module: minetest_poi
+    module: poi
     module_path: acmgit/minetest_poi
 
 - name: Install mesecons Mod
@@ -149,6 +149,8 @@
   vars:
     module: edutest-chatcommands
     module_path: zeuner/edutest-chatcommands
+    load_mods:
+      - edutest_chatcommands
 
 # 2 mods for edutest belong together
 - name: Install edutest Mod
@@ -163,18 +165,24 @@
   vars:
     module: handle_schematics
     module_path: Sokomine/handle_schematics
+    load_mods:
+      - handle_schematics-master
 
 - name: Install cottages Mod
   import_tasks: mods_download.yml
   vars:
     module: cottages
     module_path: Sokomine/cottages
+    load_mods:
+      - cottages-master
 
 - name: Install mg_villages Mod
   import_tasks: mods_download.yml
   vars:
     module: mg_villages
     module_path: Sokomine/mg_villages
+    load_mods:
+      - mg_villages-master
 
 - name: Install mapserver Mod
   import_tasks: mods_download.yml
@@ -193,7 +201,9 @@
   vars:
     module: protect
     module_path: Zeg9/minetest-protect
-
+    load_mods:
+      - protector
+      
 - name: Install farming Mod
   import_tasks: mods_download.yml
   vars:

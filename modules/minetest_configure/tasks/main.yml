@@ -71,3 +71,19 @@
 - name: Install Mapserver
   import_tasks: mapserver.yml
   notify: "Restart Minetest Service"
+
+- name: Cron job to switch Minetest On
+  become: yes
+  ansible.builtin.cron:
+    name: "MinetestOn"
+    minute: "49"
+    hour: "22"
+    job: "systemctl start minetest.service &> /dev/null"
+
+- name: Cron Job to Switch Minetest Off
+  become: yes
+  ansible.builtin.cron:
+    name: "MinetestOff"
+    minute: "51"
+    hour: "22"
+    job: "systemctl stop minetest.service &> /dev/null"

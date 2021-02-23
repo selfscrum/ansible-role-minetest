@@ -5,13 +5,6 @@
   set_fact:
     mthome: "{{lookup('env','MT_DISK')}}"
 
-- name: Create minetest bin
-  file: 
-    path: "{{mthome}}/bin"
-    state: directory
-    owner: minetest
-    group: minetest
-
 - name: Copy helper script
   copy:
     src: movemod.sh

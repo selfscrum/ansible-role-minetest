@@ -26,14 +26,17 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export MT_DEFAULT_PASSWORD={{ lookup('env','MT_DEFAULT_PASSWORD') }}
-export MT_VERSION={{ lookup('env','MT_VERSION') }}
-export MT_SERVER_NAME={{ lookup('env','MT_SERVER_NAME') }}
-export MT_SERVER_DESCRIPTION={{ lookup('env','MT_SERVER_DESCRIPTION') }}
-export MT_SERVER_ADDRESS={{ lookup('env','MT_SERVER_ADDRESS') }}
-export MT_BIND_ADDRESS={{ lookup('env','MT_BIND_ADDRESS') }}
-export MT_BIND_PORT={{ lookup('env','MT_BIND_PORT') }}
-export MT_ADMIN_NAME={{ lookup('env','MT_ADMIN_NAME') }}
-export MT_MPS_VERSION={{ lookup('env','MT_MPS_VERSION') }}
-export MT_MPS_PLATFORM={{ lookup('env','MT_MPS_PLATFORM') }}
-export MT_DISK={{ lookup('env','MT_DISK') }}
+export MT_DEFAULT_PASSWORD={{lookup('env','MT_DEFAULT_PASSWORD')}}
+export MT_VERSION={{lookup('env','MT_VERSION')}}
+export MT_SERVER_NAME={{lookup('env','MT_SERVER_NAME')}}
+export MT_SERVER_DESCRIPTION={{lookup('env','MT_SERVER_DESCRIPTION')}}
+export MT_SERVER_ADDRESS={{lookup('env','MT_SERVER_ADDRESS')}}
+export MT_BIND_ADDRESS={{lookup('env','MT_BIND_ADDRESS')}}
+export MT_BIND_PORT={{lookup('env','MT_BIND_PORT')}}
+export MT_ADMIN_NAME={{lookup('env','MT_ADMIN_NAME')}}
+export MT_MPS_VERSION={{lookup('env','MT_MPS_VERSION')}}
+export MT_MPS_PLATFORM={{lookup('env','MT_MPS_PLATFORM')}}
+export MT_DISK={{mthome}}
+export S3_ACCESS_KEY_ID={{lookup('env','S3_ACCESS_KEY_ID'}}
+export S3_SECRET_ACCESS_KEY={{lookup('env','S3_SECRET_ACCESS_KEY'}}
+export S3_HOSTNAME={{lookup('env','S3_HOSTNAME'}}

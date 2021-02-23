@@ -27,6 +27,9 @@ variable "mt_bind_port" {}
 variable "mt_admin_name" {}
 variable "mt_mps_version" {}
 variable "mt_mps_platform" {}
+variable "s3_access_key_id" {}
+variable "s3_secret_access_key" {}
+variable "s3_hostname" {}
 
 variable "mt_default_password" {}
 
@@ -68,6 +71,9 @@ module "minetest_server" {
                         mt_admin_name          = var.mt_admin_name
                         mt_mps_version         = var.mt_mps_version
                         mt_mps_platform        = var.mt_mps_platform
+                        s3_access_key_id       = var.s3_access_key_id
+                        s3_secret_access_key   = var.s3_secret_access_key
+                        s3_hostname            = var.s3_hostname
                         }
                       )
 }

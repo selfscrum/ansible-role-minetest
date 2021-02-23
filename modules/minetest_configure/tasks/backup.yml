@@ -1,0 +1,20 @@
+- name: Install s3 lib
+  become: yes
+  apt:
+    name: libs3-2
+
+- name: Copy helper script
+  copy:
+    src: backup.sh
+    dest: "{{mthome}}/bin/backup.sh >> /var/log/backup.log"
+    owner: minetest
+    group: minetest
+    mode: 0750
+
+- name: Cron job to initialize Minetest Backup
+  become: yes
+  ansible.builtin.cron:
+    name: "MinetestBackupInit"
+    minute: "00"
+    hour: "3"
+    job: "{{mthome}}/bin/backup.sh &> >> /var/log/backup.log"

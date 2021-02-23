@@ -183,3 +183,30 @@ resource "tfe_variable" "mt_mps_platform" {
     description  = "Minetest Mapserver Platform Name"
     sensitive    = false
 }
+
+resource "tfe_variable" "s3_hostname" {
+    key          = "s3_hostname"
+    value        = lookup(local.system, "s3_hostname")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "S3 Hostname for Backups"
+    sensitive    = false
+}
+
+resource "tfe_variable" "s3_access_key_id" {
+    key          = "s3_access_key_id"
+    value        = lookup(local.system, "s3_access_key_id")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "S3 AK"
+    sensitive    = false
+}
+
+resource "tfe_variable" "s3_secret_access_key" {
+    key          = "s3_secret_access_key"
+    value        = lookup(local.system, "s3_secret_access_key")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "S3 SK"
+    sensitive    = false
+}

@@ -90,6 +90,9 @@ export MT_ADMIN_NAME=${mt_admin_name}
 export MT_MPS_VERSION=${mt_mps_version}
 export MT_MPS_PLATFORM=${mt_mps_platform}
 export MT_DISK="/usr/share/minetest"
+export S3_ACCESS_KEY_ID=${s3_access_key_id}
+export S3_SECRET_ACCESS_KEY=${s3_secret_access_key}
+export S3_HOSTNAME=${s3_hostname}
 
 # run the playbook
 cd minetest-edu-server/modules

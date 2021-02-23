@@ -1,6 +1,10 @@
 ---
 # tasks file for minetest installation
 
+- name: set mthome
+  set_fact:
+    mthome: "{{lookup('env','MT_DISK')}}"
+
 - name: Copy .profile
   template:
     src: .profile.j2
@@ -39,14 +43,22 @@
 
 - name: Change owner of minetest disk
   file:
-    path: "{{ lookup('env','MT_DISK') }}"
+    path: "{{mthome}}"
     recurse: yes
     owner: minetest
     group: minetest
-    
+
+- name: Create the bin directory
+  file: 
+    path: "{{mthome}}/bin"
+    owner: minetest
+    group: minetest
+    state: directory
+    mode: '0755'
+
 - name: Create the configuration directory
   file:
-    path: "{{ lookup('env','MT_DISK') }}/conf"
+    path: "{{mthome}}/conf"
     owner: minetest
     group: minetest
     state: directory
@@ -55,7 +67,7 @@
 - name: Copy configuration template
   template:
     src: minetest.conf.j2
-    dest: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    dest: "{{mthome}}/conf/minetest.conf"
     owner: minetest
     group: minetest
     mode: 0640
@@ -71,6 +83,9 @@
 - name: Install Mapserver
   import_tasks: mapserver.yml
   notify: "Restart Minetest Service"
+
+- name: Install Backup
+  import_tasks: backup.yml
 
 - name: Cron job to switch Minetest On
   become: yes

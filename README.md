@@ -54,8 +54,10 @@ This playbook loads all modules and might modify the existing minetest.conf Afte
 
 The mapserver is available from http://<server-address>:8080. Since the system is intended for internal use behind a VPN, it is not configured with SSL.
 
+## Backup
+
+We use an S3 bucket to store backup data in a cheap and easy way. For GDPR reasons, we have built this connection to a Telekom storage server. It should also work fine with another S3 clone service or the original AWS.
 
 # Features to come
 * add wireguard client for secure access automatically
 * integrated hugo web site for explanation of locations (links from map)
-* automated backup to cheap cloud storage

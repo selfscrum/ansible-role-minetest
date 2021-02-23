@@ -6,8 +6,8 @@ After=network.target
 Type=simple
 User=minetest
 Group=minetest
-WorkingDirectory={{lookup('env','MT_DISK')}}/data
-ExecStart={{ lookup('env','MT_DISK') }}/data/mapserver
+WorkingDirectory={{mthome}}/data
+ExecStart={{mthome}}/data/mapserver
 Restart=on-abort
 
 [Install]

@@ -29,38 +29,18 @@
 - name: Unzip the Download
   unarchive:
     src: /tmp/master.zip
-    dest: "{{ lookup('env','MT_DISK') }}/mods"
+    dest: "{{mthome}}/mods"
     owner: minetest
     group: minetest
     remote_src: true
 
 - name: Move the Mod
-  block: 
-  - name: Stat the original Direcory
-    stat: 
-      path: "{{ lookup('env','MT_DISK') }}/mods/{{module}}-master"
-    register: master_mod
-
-  - name: Create mods Directory
-    file: 
-      path: "{{ lookup('env','MT_DISK') }}/mods/{{module}}"
-      state: directory
-      owner: minetest
-      group: minetest
-
-  - name: Copy
-    shell: "cp -R {{ lookup('env','MT_DISK') }}/mods/{{module}}-master/* {{ lookup('env','MT_DISK') }}/mods/{{module}}"
-    when: master_mod.stat.exists
-
-  - name: Remove
-    command: "rm -rf {{ lookup('env','MT_DISK') }}/mods/{{module}}-master"
-    when: master_mod.stat.exists
-    
+  shell: "{{mthome}}/bin/movemod.sh" "{{mthome}}/mods/{{module}}-master" "{{mthome}}/mods/{{load_mods[0]}}"
   when: move|default(false) == true
 
 - name: Add Config Line for "{{module}}" in world.mt
   lineinfile:
-    path: "{{ lookup('env','MT_DISK') }}/data/world.mt"
+    path: "{{mthome}}/data/world.mt"
     regexp: "^load_mod_{{item}} ="
     line: "load_mod_{{item}} = true"
   loop: "{{ load_mods | default( [ module ] ) }}"
@@ -68,7 +48,7 @@
 
 - name: Add Config Line for "{{module}}" in minetest.conf
   lineinfile:
-    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    path: "{{mthome}}/conf/minetest.conf"
     regexp: "^{{item}}"
     line: "{{item}}"
   loop: "{{load_conf | default([])}}"

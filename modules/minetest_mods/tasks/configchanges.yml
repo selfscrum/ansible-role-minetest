@@ -2,7 +2,7 @@
 # confgichanges.yml - modify minetest.conf for special module needs
 
 - name: Get the Mapserver Config
-  shell: "cat {{lookup('env','MT_DISK')}}/data/mapserver.json"
+  shell: "cat {{ mthome }}/data/mapserver.json"
   register: mps_config
 
 - name: extract secret key from mapserver config
@@ -11,7 +11,7 @@
 
 - name: Add Config Line for "mapserver.key"
   lineinfile:
-    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    path: "{{ mthome }}/conf/minetest.conf"
     regexp: "^mapserver.key"
     line: "mapserver.key = {{mps_key}}"
   notify: 
@@ -20,7 +20,7 @@
 
 - name: Add Config Line for "secure.http_mods"
   lineinfile:
-    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    path: "{{ mthome }}/conf/minetest.conf"
     regexp: "^secure.http_mods"
     line: "secure.http_mods = mapserver"
   notify: 
@@ -29,7 +29,7 @@
 
 - name: Add Config Line for "secure.trusted_mods"
   lineinfile:
-    path: "{{ lookup('env','MT_DISK') }}/conf/minetest.conf"
+    path: "{{ mthome }}/conf/minetest.conf"
     regexp: "^secure.trusted_mods"
     line: "secure.trusted_mods = skinsdb"
   notify: 

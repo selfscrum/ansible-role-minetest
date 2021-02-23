@@ -1,6 +1,25 @@
 ---
 # tasks file for minetest modding
 
+- name: set mthome
+  set_fact:
+    mthome: "{{lookup('env','MT_DISK')}}"
+
+- name: Create minetest bin
+  file: 
+    path: "{{mthome}}/bin"
+    state: directory
+    owner: minetest
+    group: minetest
+
+- name: Copy helper script
+  file:
+    src: movemod.sh
+    dest: "{{mthome}}/bin/movemod.sh"
+    owner: minetest
+    group: minetest
+    mode: 0750
+
 - name: Install Texture
   import_tasks: texture.yml
 

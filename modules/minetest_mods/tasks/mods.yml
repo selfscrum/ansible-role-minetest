@@ -16,7 +16,7 @@
 
 - name: Create mods Directory
   file: 
-    path: "{{ lookup('env','MT_DISK') }}/mods"
+    path: "{{ mthome }}/mods"
     state: directory
     owner: minetest
     group: minetest
@@ -215,6 +215,8 @@
     module: teaching
     module_path: sfan5/teaching
     src: ContentDB
+    load_mods:
+      - teaching
 
 - name: Install farming Mod
   import_tasks: mods_download.yml

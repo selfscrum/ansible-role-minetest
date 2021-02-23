@@ -11,7 +11,7 @@
 - name: Create textures Directory
   become: yes
   file: 
-    path: "{{ lookup('env','MT_DISK') }}/textures/downloads"
+    path: "{{ mthome }}/textures/downloads"
     state: directory
     owner: minetest
     group: minetest
@@ -26,29 +26,29 @@
 - name: Download redirected file
   get_url: 
     url: "{{ texture_asset.location }}"
-    dest: "{{ lookup('env','MT_DISK') }}/textures/downloads/texture.zip"
+    dest: "{{ mthome }}/textures/downloads/texture.zip"
 
 - name: Unzip the Download
   unarchive:
-    src: "{{ lookup('env','MT_DISK') }}/textures/downloads/texture.zip"
-    dest: "{{ lookup('env','MT_DISK') }}/textures/downloads"
+    src: "{{ mthome }}/textures/downloads/texture.zip"
+    dest: "{{ mthome }}/textures/downloads"
     owner: minetest
     group: minetest
     remote_src: true
 
 - name: Get the Package Directory Name
   find: 
-    path: "{{ lookup('env','MT_DISK') }}/textures/downloads"
+    path: "{{ mthome }}/textures/downloads"
     file_type: directory
   register: texture_dir
 
 - name: Create server Directory
   file: 
-    path: "{{ lookup('env','MT_DISK') }}/textures/server"
+    path: "{{ mthome }}/textures/server"
     state: directory
     owner: minetest
     group: minetest
 
 - name: Copy texture dir to the default place
-  shell: "cp -R {{(texture_dir| json_query('files[0].path')).split(' ') | join('\\ ')}}/* {{ lookup('env','MT_DISK') }}/textures/server"
+  shell: "cp -R {{(texture_dir| json_query('files[0].path')).split(' ') | join('\\ ')}}/* {{ mthome }}/textures/server"
   notify: "Restart Minetest Service"

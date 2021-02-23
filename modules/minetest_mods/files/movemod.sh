@@ -17,6 +17,7 @@ mkdir -p /tmp/zip.$$
 mv $zip /tmp/zip.$$
 cd /tmp/zip.$$
 unzip $(basename $zip)
+rm $(basename $zip)
 
 if [[ $(ls -1 | wc -l) -ne 1 ]] ; then
     echo "Unsupported zip file format"

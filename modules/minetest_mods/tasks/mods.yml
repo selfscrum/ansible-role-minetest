@@ -212,9 +212,8 @@
 - name: Install teaching Mod
   import_tasks: mods_download.yml
   vars:
-    module: minetest-teaching
+    module: minetest_teaching-master
     module_path: sfan5/minetest-teaching
-    move: true
 
 - name: Install farming Mod
   import_tasks: mods_download.yml

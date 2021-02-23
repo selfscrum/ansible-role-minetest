@@ -10,7 +10,7 @@ cd /usr/share
 archive="backup-$(date "+%Y-%m-%d").tar"
 tar cf $archive minetest
 gzip $archive
-s3 put rfnl-minetest-backup/$archive.gz > /dev/null
+s3 put rfnl-minetest-backup/$archive.gz filename=$archive.gz > /dev/null
 rm $archive.gz
 systemctl start minetest.service
 systemctl status minetest.service

@@ -215,6 +215,7 @@
     module_path: sfan5/teaching
     load_mods:
       - teaching
+    src: ContentDB
     move: true
 
 - name: Install farming Mod

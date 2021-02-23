@@ -209,6 +209,12 @@
     load_mods:
       - protector
 
+- name: Install teaching Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: teaching
+    module_path: sfan5/minetest-teaching
+
 - name: Install farming Mod
   import_tasks: mods_download.yml
   vars:

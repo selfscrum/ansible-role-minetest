@@ -170,7 +170,6 @@
       - handle_schematics
     move: true
 
-
 - name: Install cottages Mod
   import_tasks: mods_download.yml
   vars:
@@ -214,9 +213,9 @@
   vars:
     module: teaching
     module_path: sfan5/teaching
-    src: ContentDB
     load_mods:
       - teaching
+    move: true
 
 - name: Install farming Mod
   import_tasks: mods_download.yml

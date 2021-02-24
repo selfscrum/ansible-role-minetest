@@ -3,10 +3,10 @@
   apt:
     name: libs3-2
 
-- name: Copy helper script
+- name: Copy backzp script
   copy:
     src: backup.sh
-    dest: "{{mthome}}/bin/backup.sh >> /var/log/backup.log"
+    dest: "{{mthome}}/bin/backup.sh"
     owner: minetest
     group: minetest
     mode: 0750
@@ -17,4 +17,4 @@
     name: "MinetestBackupInit"
     minute: "00"
     hour: "3"
-    job: "{{mthome}}/bin/backup.sh &> >> /var/log/backup.log"
+    job: "{{mthome}}/bin/backup.sh >> /var/log/backup.log"

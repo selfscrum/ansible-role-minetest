@@ -142,10 +142,12 @@
   vars:
     module: skinsdb
     module_path: minetest-mods/skinsdb
+    load_mods:
+      - skinsdb
     load_conf:
       - secure.trusted_mods = skinsdb
     move: true
-    
+
 - name: Install edutest-chatcommands Mod
   import_tasks: mods_download.yml
   vars:

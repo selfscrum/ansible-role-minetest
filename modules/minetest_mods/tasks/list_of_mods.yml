@@ -196,6 +196,9 @@
   vars:
     module: mapserver
     module_path: minetest-mapserver/mapserver_mod
+    load_mods:
+      - mapserver
+    move: true
 
 - name: Install signs_lib Mod
   import_tasks: mods_download.yml

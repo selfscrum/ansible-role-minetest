@@ -16,8 +16,9 @@
 - name: Install Texture
   import_tasks: texture.yml
 
-- name: Install Mods
-  import_tasks: mods.yml
-
 - name: Make Config Changes
-  import_tasks: configchanges.yml
+  import_tasks: config_changes.yml
+
+- name: Install Mods
+  import_tasks: list_of_mods.yml
+

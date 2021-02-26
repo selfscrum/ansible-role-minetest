@@ -3,7 +3,7 @@
   apt:
     name: libs3-2
 
-- name: Copy backzp script
+- name: Copy backup script
   copy:
     src: backup.sh
     dest: "{{mthome}}/bin/backup.sh"

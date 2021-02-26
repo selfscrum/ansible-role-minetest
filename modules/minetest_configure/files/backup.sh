@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# backup.sh - save the complete minetest setup to an S3 bucket (Tested with Open Telekom Cloud)
+#
 
 echo "$(date  '+%Y-%m-%d %H:%M:%S') $(hostname) Starting Backup"
 systemctl stop mapserver.service

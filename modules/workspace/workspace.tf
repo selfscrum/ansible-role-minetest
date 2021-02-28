@@ -91,7 +91,7 @@ resource "tfe_variable" "mt_disk_id" {
     value        = lookup(local.system, "disk_id")
     category     = "terraform"
     workspace_id = tfe_workspace.minetest_server.id
-    description  = "disk_id of the Component"
+    description  = "Disk_id of the Component"
 }
 
 resource "tfe_variable" "mt_version" {

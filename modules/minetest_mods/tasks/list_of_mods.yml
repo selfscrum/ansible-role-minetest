@@ -131,6 +131,14 @@
       - mesecons_fpga
       - mesecons_gates
 
+- name: Install digilines Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: digilines
+    module_path: minetest-mods/digilines
+    load_mods:
+      - digilines
+
 - name: Install moreblocks Mod
   import_tasks: mods_download.yml
   vars:

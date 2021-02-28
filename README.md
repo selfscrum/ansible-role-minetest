@@ -20,7 +20,7 @@ Prerequisite: you need
 * Connect the Terraform Workspace with the project repo. Github and gitlab work good. Make sure the terraform directory is set to `terraform` (should be already set).
 * Run the Queue initially once. Terraform starts init and apply scripts and after 2 minutes you have your minetest server.
 * Future changes to the gitlab project lead to an automated update. The data disk is mounted on an individual disk - if you don't change the disk definition, it will survive even a server reconstruction. The external disk is mounted at `/usr/share/disk`.
-* The base configuration of the server is performed from the `start_configure.yml` ansible playbook. It is called automatically by terraform.
+* The base configuration of the server is performed from the `start_configure.yml` ansible playbook. It is called automatically by terraform. However since Wireguard installation is not yet completely automated, you should run the playbook again after Wireguard configuration and before the mods playbook. To do si, go to `/opt/bootstrap/minetest-edu-server/modules` and start `ansible-playbook start_configure.yml`.
 
 ## Get your Wireguard service running
 
@@ -52,7 +52,7 @@ This playbook loads all modules and might modify the existing minetest.conf Afte
 
 ## Mapserver
 
-The mapserver is available from http://<server-address>:8080. Since the system is intended for internal use behind a VPN, it is not configured with SSL.
+The mapserver is available from http://<server-address>:8080. Since the system is intended for internal use behind a VPN, it is not configured with SSL. It is configured with the hostname as addressed in the terraform `mt_server_address` variable.
 
 ## Backup
 

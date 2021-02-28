@@ -4,6 +4,8 @@ Provide a stable one-stop-shop routine to install a Hetzner cloud machine with a
 
 Thanks to @nautik1 for providing the original ansible playbook
 
+![Architecture Overview](./hetzner-minetest.png)
+
 ## Install with Terraform Cloud
 
 Prerequisite: you need 

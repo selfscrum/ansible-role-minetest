@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../../../libs3-2"
+		},
+		{
+			"path": "../../../websites/selfscrum.org"
 		}
 	],
 	"settings": {}

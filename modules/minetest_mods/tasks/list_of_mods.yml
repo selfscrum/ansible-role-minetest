@@ -139,6 +139,16 @@
     load_mods:
       - digilines
 
+- name: Install pipeworks Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: pipeworks
+    module_path: VanessaE/pipeworks
+    load_mods:
+      - pipeworks
+    move: true
+
+
 - name: Install moreblocks Mod
   import_tasks: mods_download.yml
   vars:

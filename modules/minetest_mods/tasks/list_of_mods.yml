@@ -277,6 +277,12 @@
     module_path: RealBadAngel/technic
     load_mods:
       - technic
+      - wrench
+      - technic_worldgen
+      - technic_cnc
+      - extranodes
+      - technic_chests
+      - concrete
     move: true
     src: ContentDB
 

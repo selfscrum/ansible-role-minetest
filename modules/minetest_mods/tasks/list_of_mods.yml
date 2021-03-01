@@ -139,17 +139,6 @@
     load_mods:
       - digilines
 
-- name: Install pipeworks Mod
-  import_tasks: mods_download.yml
-  vars:
-    module: pipeworks
-    module_path: 6876645
-    load_mods:
-      - pipeworks
-    move: true
-    src: gitlab
-
-
 - name: Install moreblocks Mod
   import_tasks: mods_download.yml
   vars:
@@ -269,5 +258,25 @@
   vars:
     module: mobs_animal
     module_path: TenPlus1/mobs_animal
+    src: ContentDB
+
+- name: Install pipeworks Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: pipeworks
+    module_path: VanessaE/pipeworks
+    load_mods:
+      - pipeworks
+    move: true
+    src: ContentDB
+
+- name: Install technic Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: technic
+    module_path: RealBadAngel/technic
+    load_mods:
+      - technic
+    move: true
     src: ContentDB
 

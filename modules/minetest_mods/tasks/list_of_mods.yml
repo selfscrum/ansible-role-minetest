@@ -143,10 +143,11 @@
   import_tasks: mods_download.yml
   vars:
     module: pipeworks
-    module_path: VanessaE/pipeworks
+    module_path: 6876645
     load_mods:
       - pipeworks
     move: true
+    src: gitlab
 
 
 - name: Install moreblocks Mod

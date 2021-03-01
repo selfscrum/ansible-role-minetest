@@ -7,6 +7,12 @@
 
 - name: Download "{{module}}" from github
   get_url: 
+    url: "https://gitlab.com/api/v4/projects/{{module_path}}/repository/archive.zip"
+    dest: /tmp/master.zip
+  when: src|default('github') == 'gitlab'
+
+- name: Download "{{module}}" from github
+  get_url: 
     url: "https://github.com/{{module_path}}/archive/master.zip"
     dest: /tmp/master.zip
   when: src|default('github') == 'github'

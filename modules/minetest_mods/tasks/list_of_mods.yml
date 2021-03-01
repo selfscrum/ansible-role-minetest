@@ -260,6 +260,16 @@
     module_path: TenPlus1/mobs_animal
     src: ContentDB
 
+- name: Install basic_materials Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: basic_materials
+    module_path: VanessaE/basic_materials
+    load_mods:
+      - basic_materials
+    move: true
+    src: ContentDB
+
 - name: Install pipeworks Mod
   import_tasks: mods_download.yml
   vars:

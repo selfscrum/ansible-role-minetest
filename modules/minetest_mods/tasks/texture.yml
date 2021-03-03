@@ -16,22 +16,24 @@
     owner: minetest
     group: minetest
 
-- name: Download Texture path from ContentDB
-  ansible.builtin.uri: 
-    url: "https://content.minetest.net/packages/{{texture}}/download"
-    dest: /tmp/redirect
-#    status_code: 308
-  register: texture_asset
-
-- name: Download redirected file
-  get_url: 
-    url: "{{ texture_asset.location }}"
-    dest: "{{ mthome }}/textures/downloads/texture.zip"
+# - name: Download Texture path from ContentDB
+#   ansible.builtin.uri: 
+#     url: "https://content.minetest.net/packages/{{texture}}/download"
+#     dest: /tmp/redirect
+#     status_code: 300
+#   register: texture_asset
 
 # - name: Download redirected file
 #   get_url: 
-#     url: "https://content.minetest.net/packages/{{texture}}/download"
+#     url: "{{ texture_asset.location }}"
 #     dest: "{{ mthome }}/textures/downloads/texture.zip"
+
+- name: Download Texture path from ContentDB
+  ansible.builtin.uri: 
+    url: "https://content.minetest.net/packages/{{texture}}/download"
+    dest: "{{ mthome }}/textures/downloads/texture.zip"
+
+
 
 - name: Unzip the Download
   unarchive:

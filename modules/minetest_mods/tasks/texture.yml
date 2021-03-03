@@ -17,10 +17,10 @@
     group: minetest
 
 - name: Download Texture path from ContentDB
-  uri: 
+  ansible.builtin.uri: 
     url: "https://content.minetest.net/packages/{{texture}}/download"
     dest: /tmp/redirect
-    status_code: 308
+#    status_code: 308
   register: texture_asset
 
 - name: Download redirected file

@@ -23,13 +23,19 @@
       uri: 
         url: "https://content.minetest.net/packages/{{module_path}}/download"
         dest: /tmp/master.zip
-        status_code: 300
       register: uri_asset
 
-    - name: Donwload redirected file
-      get_url: 
-        url: "{{ uri_asset.location }}"
-        dest: /tmp/master.zip
+    # - name: Get file location from ContentDB
+    #   uri: 
+    #     url: "https://content.minetest.net/packages/{{module_path}}/download"
+    #     dest: /tmp/master.zip
+    #     status_code: 300
+    #   register: uri_asset
+
+    # - name: Donwload redirected file
+    #   get_url: 
+    #     url: "{{ uri_asset.location }}"
+    #     dest: /tmp/master.zip
   when: src|default('github') == 'ContentDB'
 
 - name: Unzip the Download

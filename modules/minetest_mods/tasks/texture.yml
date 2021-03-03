@@ -16,16 +16,21 @@
     owner: minetest
     group: minetest
 
-- name: Download Texture path from ContentDB
-  uri: 
-    url: "https://content.minetest.net/packages/{{texture}}/download"
-    dest: /tmp/redirect
-    status_code: 300
-  register: texture_asset
+# - name: Download Texture path from ContentDB
+#   uri: 
+#     url: "https://content.minetest.net/packages/{{texture}}/download"
+#     dest: /tmp/redirect
+#     status_code: 300
+#   register: texture_asset
+
+# - name: Download redirected file
+#   get_url: 
+#     url: "{{ texture_asset.location }}"
+#     dest: "{{ mthome }}/textures/downloads/texture.zip"
 
 - name: Download redirected file
   get_url: 
-    url: "{{ texture_asset.location }}"
+    url: "https://content.minetest.net/packages/{{texture}}/download"
     dest: "{{ mthome }}/textures/downloads/texture.zip"
 
 - name: Unzip the Download

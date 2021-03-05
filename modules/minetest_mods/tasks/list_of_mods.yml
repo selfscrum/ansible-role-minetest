@@ -159,11 +159,15 @@
   vars:
     module: pkarcs
     module_path: TumeniNodes/pkarcs
+    load_mods:
+      - pkarcs
+      - pkarcs_doors
+      - pkarcs_doors3
 
 - name: Install nether Mod
   import_tasks: mods_download.yml
   vars:
-    module: moreblocks
+    module: nether
     module_path: minetest-mods/nether
 
 - name: Install skinsdb Mod

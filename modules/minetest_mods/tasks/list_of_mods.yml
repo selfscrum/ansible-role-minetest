@@ -131,6 +131,7 @@
       - mesecons_fpga
       - mesecons_gates
 
+# digilines base package with lines, lcd etc.
 - name: Install digilines Mod
   import_tasks: mods_download.yml
   vars:
@@ -139,6 +140,14 @@
     load_mods:
       - digilines
 
+# Terminals and keyboard
+- name: Install digiterms Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: digiterms
+    module_path: pyrollo/digiterms
+
+# copy and paste areas
 - name: Install edit Mod
   import_tasks: mods_download.yml
   vars:

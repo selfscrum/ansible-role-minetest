@@ -154,6 +154,18 @@
     module: moreblocks
     module_path: minetest-mods/moreblocks
 
+- name: Install pkarcs Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: pkarcs
+    module_path: TumeniNodes/pkarcs
+
+- name: Install nether Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: moreblocks
+    module_path: minetest-mods/nether
+
 - name: Install skinsdb Mod
   import_tasks: mods_download.yml
   vars:

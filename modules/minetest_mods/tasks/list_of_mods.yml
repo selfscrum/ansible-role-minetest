@@ -146,6 +146,9 @@
   vars:
     module: digiterms
     module_path: pyrollo/digiterms
+    move: true
+    load_mods:
+      - digiterms
 
 # copy and paste areas
 - name: Install edit Mod

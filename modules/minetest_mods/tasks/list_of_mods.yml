@@ -259,41 +259,41 @@
     load_mods:
       - protector
 
-- name: Install climate API Mod
-  import_tasks: mods_download.yml
-  vars:
-    module: climate_api
-    module_path: t-affeldt/climate_api
-    load_mods:
-      - climate_api
-    move: true
+# - name: Install climate API Mod
+#   import_tasks: mods_download.yml
+#   vars:
+#     module: climate_api
+#     module_path: t-affeldt/climate_api
+#     load_mods:
+#       - climate_api
+#     move: true
 
-- name: Install regional_weather Mod
-  import_tasks: mods_download.yml
-  vars:
-    module: regional_weather
-    module_path: t-affeldt/regional_weather
-    load_mods:
-      - regional_weather
-    move: true
+# - name: Install regional_weather Mod
+#   import_tasks: mods_download.yml
+#   vars:
+#     module: regional_weather
+#     module_path: t-affeldt/regional_weather
+#     load_mods:
+#       - regional_weather
+#     move: true
 
-- name: Install minetest_moon_phase Mod
-  import_tasks: mods_download.yml
-  vars:
-    module: minetest_moon_phase
-    module_path: t-affeldt/minetest_moon_phase
-    load_mods:
-      - minetest_moon_phases
-    move: true
+# - name: Install minetest_moon_phase Mod
+#   import_tasks: mods_download.yml
+#   vars:
+#     module: minetest_moon_phase
+#     module_path: t-affeldt/minetest_moon_phase
+#     load_mods:
+#       - minetest_moon_phases
+#     move: true
 
-- name: Install lightning Mod
-  import_tasks: mods_download.yml
-  vars:
-    module: lightning
-    module_path: minetest-mods/lightning
-    load_mods:
-      - lightning
-    move: true
+# - name: Install lightning Mod
+#   import_tasks: mods_download.yml
+#   vars:
+#     module: lightning
+#     module_path: minetest-mods/lightning
+#     load_mods:
+#       - lightning
+#     move: true
    
 - name: Install teaching Mod
   import_tasks: mods_download.yml

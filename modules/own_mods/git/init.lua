@@ -11,28 +11,36 @@
 
 -- github api pseudocode for repo listing:
 
+
 -- function decls
-local formspec_string
-local nodepath_to_string
-local get_file
-local send_file
+local chdir
+local create_git_repo
 local dec
+local formspec_string
+local get_file
+local nodepath_to_string
+
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
 -- must move them elswhere
 local function get_token() 
     return "e26017631a665322232de8cd55eb897bf2359352"
 end
-
 local http = minetest.request_http_api()
 local currentdir={}
 
+-- debugging aid
 local function dumptable(t,msg)
     for k,v in pairs(t) do
         minetest.log("verbose",msg..">>>>"..k.."<<,>>"..tostring(v).."<<")
     end
 end
 
+-- node for one git directory level. 
+-- It is designed to support lazy loading - The tree is not created recursively on load of the repo but only if a user
+-- opens the next level, it will be loaded.
+-- memo to self - does garbage collection work later if we just set the top node to nil?
+--
 gnode = {
     url = "",
     path = "",
@@ -40,12 +48,14 @@ gnode = {
     pos = {},
     children = nil,
     parent = nil,
+    -- constructor
     new =   function (self, o)
                 o = o or {}
                 setmetatable(o, self)
                 self.__index = self
                return o
             end,
+    -- fills one level method and updates the formspec_string of the form asynchronously.
     fill =  function (self)
                 -- if self.children then
                 --     meta:set_string("formspec", formspec_string(self))
@@ -62,7 +72,6 @@ gnode = {
                         function(response)
                             if not response.succeeded then return end
                             local data = minetest.parse_json(response.data)
-                            minetest.log("verbose",">>>>URL>>"..self.url..", >> DATA:"..tostring(data))
                             self.children = {}
                             for i, value in ipairs(data.tree) do
                                 local g = gnode:new()
@@ -82,7 +91,7 @@ gnode = {
 
 -- change to another git directory, and load node file list if dir changed
 --
-local function chdir(current_dir, idx)
+function chdir(current_dir, idx)
     -- return parent for ".."
     if idx == 1 and current_dir.parent then
         current_dir.parent:fill()
@@ -99,11 +108,13 @@ local function chdir(current_dir, idx)
         current_dir.children[idx]:fill()
         return current_dir.children[idx]
     else
-        send_file(current_dir.children[idx])
+        get_file(current_dir.children[idx])
     end
     return current_dir
 end
 
+-- create the complete text path of a node from root to here. Ends with "/"
+--
 function nodepath_to_string(node)
     if not node.parent then return "/" end
     return nodepath_to_string(node.parent)..node.path.."/"
@@ -119,7 +130,7 @@ function formspec_string(node)
     if node.children then
         for i,child in pairs(node.children) do
             if child.type == "tree" then
-                table.insert(items,"#cc0000"..child.path)
+                table.insert(items,"#FF0000"..child.path)
             else
                 table.insert(items,"#000000"..child.path)
             end
@@ -145,9 +156,9 @@ function formspec_string(node)
     return s
 end
 
--- create the root node
+-- create the root node of the repo and set the initial formspec string asynchronously.
 --
-local function create_git_repo(pos,user,repo)
+function create_git_repo(pos,user,repo)
     local url = "https://api.github.com/repos/"..user.."/"..repo
     local meta = minetest.get_meta(pos)
     if http then
@@ -172,6 +183,8 @@ local function create_git_repo(pos,user,repo)
     end
 end
 
+-- get the content of a git repo file and send it to a digiline
+--
 function get_file(node)
     local path = string.sub(nodepath_to_string(node),1,-1)
     local meta = minetest.get_meta(node.pos)
@@ -191,19 +204,20 @@ function get_file(node)
                 local entry = minetest.parse_json(response.data)
                 if not entry then return end
                 dumptable(entry,"GET_FILE_ENTRY")
-                local s=dec(entry.content)
-                minetest.log("verbose",">>>"..s.."<<<")
-                digiline:receptor_send(node.pos, digiline.rules.default, "test", s)
+                local str=dec(entry.content)
+                -- lines = {}
+                -- for s in str:gmatch("[^\r\n]+") do
+                --     table.insert(lines, s)
+                --     digiline:receptor_send(node.pos, digiline.rules.default, "test", s)
+                -- end
+                digiline:receptor_send(node.pos, digiline.rules.default, "test", str)
             end
         )
     end
 end
 
-function send_file(node)
-    get_file(node)
-end
-
--- decoding
+-- decoding base64 strings
+--
 function dec(data)
     data = string.gsub(data, '[^'..b..'=]', '')
     return (data:gsub('.', function(x)
@@ -240,13 +254,6 @@ minetest.register_node("git:repository",
     on_destruct           = function(pos)
                             currentdir[dump(pos)] = nil
                             end,                         
-    after_dig_node        = function(pos, oldnode, oldmetadata, digger)
-                            -- oldmetadata is in table format.
-                            dumptable(oldmetadata.fields,"DIG")
-                            -- Called after destructing node when node was dug using
-                            -- minetest.node_dig / minetest.dig_node.
-                            -- default: nil
-                            end,
     on_rightclick         = function(pos, node, clicker, itemstack, pointed_thing)
                                 if not default.can_interact_with_node(clicker, pos) then
                                     return itemstack

@@ -283,7 +283,7 @@
     module: minetest_moon_phase
     module_path: t-affeldt/minetest_moon_phase
     load_mods:
-      - minetest_moon_phase
+      - minetest_moon_phases
     move: true
 
 - name: Install lightning Mod

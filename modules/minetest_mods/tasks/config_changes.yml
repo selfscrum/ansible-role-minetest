@@ -38,7 +38,7 @@
 
 - name: Switch off village generation but leave the module running
   lineinfile:
-    path: "{{ mthome }}/mods/mg_villages/config.lua
+    path: "{{ mthome }}/mods/mg_villages/config.lua"
     regexp: "^mg_villages.ENABLE_VILLAGES"
     line: "mg_villages.ENABLE_VILLAGES = false;"
   notify: 
@@ -47,7 +47,7 @@
 
 - name: Switch off house generation but leave the module running
   lineinfile:
-    path: "{{ mthome }}/mods/mg_villages/config.lua
+    path: "{{ mthome }}/mods/mg_villages/config.lua"
     regexp: "^mg_villages.INVERSE_HOUSE_DENSITY"
     line: "mg_villages.INVERSE_HOUSE_DENSITY = 0;"
   notify: 

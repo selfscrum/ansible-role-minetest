@@ -268,6 +268,15 @@
       - mapfix
     move: true
 
+- name: Install pvp_areas Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: pvp_areas
+    module_path: everamzah/pvp_areas
+    load_mods:
+      - pvp_areas
+    move: true
+
 # - name: Install climate API Mod
 #   import_tasks: mods_download.yml
 #   vars:

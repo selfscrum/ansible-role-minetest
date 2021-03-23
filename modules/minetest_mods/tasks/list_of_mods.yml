@@ -259,6 +259,15 @@
     load_mods:
       - protector
 
+- name: Install mapfix Mod
+  import_tasks: mods_download.yml
+  vars:
+    module: mapfix
+    module_path: minetest-mods/mapfix
+    load_mods:
+      - mapfix
+    move: true
+
 # - name: Install climate API Mod
 #   import_tasks: mods_download.yml
 #   vars:

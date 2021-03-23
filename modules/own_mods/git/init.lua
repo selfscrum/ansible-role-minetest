@@ -24,7 +24,7 @@ local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
 -- must move them elswhere
 local function get_token() 
-    return "e26017631a665322232de8cd55eb897bf2359352"
+    return "102c86efc39b24971e0d36dd811e88901719d6f1"
 end
 local http = minetest.request_http_api()
 local currentdir={}

@@ -88,9 +88,9 @@
     state: directory
     mode: '0755'
 
-- name: Install Mapserver
-  import_tasks: mapserver.yml
-  notify: "Restart Minetest Service"
+#- name: Install Mapserver
+#  import_tasks: mapserver.yml
+#  notify: "Restart Minetest Service"
 
 - name: Install Backup
   import_tasks: backup.yml

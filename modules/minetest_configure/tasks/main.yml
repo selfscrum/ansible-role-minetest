@@ -80,13 +80,13 @@
     mode: 0644
   notify: "Restart Minetest Service"
 
-- name: Create the data directory
-  file:
-    path: "{{mthome}}/data"
-    owner: minetest
-    group: minetest
-    state: directory
-    mode: '0755'
+- name: Restart
+  become: yes
+  systemd:
+    name: minetest.service
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
 
 - name: Install Mapserver
   import_tasks: mapserver.yml

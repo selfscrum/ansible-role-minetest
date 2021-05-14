@@ -185,8 +185,8 @@ resource "tfe_variable" "mt_mps_platform" {
 }
 
 resource "tfe_variable" "mt_branch" {
-    key          = "branch"
-    value        = lookup(local.system, "branch")
+    key          = "mt_branch"
+    value        = lookup(local.system, "mt_branch")
     category     = "terraform"
     workspace_id = tfe_workspace.minetest_server.id
     description  = "branch in github where to get mt from"

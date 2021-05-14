@@ -21,6 +21,7 @@
     "mt_admin_name" : "mt_admin",
     "mt_mps_version": "4.2",
     "mt_mps_platform": "mapserver-linux-x86_64",
+    "branch": "main",
     "s3_access_key_id" : "",
     "s3_secret_access_key" : "",
     "s3_hostname" : "obs.otc.t-systems.com"

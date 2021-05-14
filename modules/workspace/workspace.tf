@@ -184,6 +184,14 @@ resource "tfe_variable" "mt_mps_platform" {
     sensitive    = false
 }
 
+resource "tfe_variable" "mt_branch" {
+    key          = "branch"
+    value        = lookup(local.system, "branch")
+    category     = "terraform"
+    workspace_id = tfe_workspace.minetest_server.id
+    description  = "branch in github where to get mt from"
+}
+
 resource "tfe_variable" "s3_hostname" {
     key          = "s3_hostname"
     value        = lookup(local.system, "s3_hostname")

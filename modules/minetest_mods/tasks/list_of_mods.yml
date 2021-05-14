@@ -268,6 +268,14 @@
       - mapfix
     move: true
 
+# # set:
+# pvp_areas pos1
+# pvp_areas pos2
+# pvp_areas set
+
+# # remove:
+# pvp_areas remove <id>
+
 - name: Install pvp_areas Mod
   import_tasks: mods_download.yml
   vars:

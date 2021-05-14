@@ -64,6 +64,14 @@
     state: directory
     mode: '0755'
 
+- name: Create the data directory
+  file:
+    path: "{{mthome}}/data"
+    owner: minetest
+    group: minetest
+    state: directory
+    mode: '0755'
+
 - name: Copy configuration template
   template:
     src: minetest.conf.j2

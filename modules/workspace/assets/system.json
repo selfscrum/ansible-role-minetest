@@ -11,7 +11,7 @@
     "server_type" :"cx41",
     "keyname" :"tfh_key",
     "network_zone" :"eu-central",
-    "disk_id" : "",
+    "disk_id" : "11211909",
     "mt_version": "5.4*",
     "mt_server_name": "exploreandlearn Minetest Server",
     "mt_server_description": "Willkommen bei Minetest",

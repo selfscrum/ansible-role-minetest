@@ -62,6 +62,8 @@ fi
 # allow external access
 ufw allow 30000/udp
 ufw allow 30000/tcp
+# workaround for installs without wireguard:
+ufw allow 8080/tcp
 ufw reload
 
 # get base software for bootstrapping: ansible and git
@@ -76,6 +78,9 @@ cd /opt/bootstrap
 
 # get the bootsload project
 git clone https://github.com/selfscrum/minetest-edu-server
+git fetch
+git checkout ${mt_branch}
+git pull
 
 chown -R minetest:minetest *
 

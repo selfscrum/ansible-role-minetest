@@ -82,6 +82,7 @@ cd minetest-edu-server
 git fetch
 git checkout ${mt_branch}
 git pull
+cd ..
 
 chown -R minetest:minetest *
 

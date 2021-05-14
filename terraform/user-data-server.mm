@@ -78,6 +78,7 @@ cd /opt/bootstrap
 
 # get the bootsload project
 git clone https://github.com/selfscrum/minetest-edu-server
+cd minetest-edu-server
 git fetch
 git checkout ${mt_branch}
 git pull
